@@ -1,4 +1,3 @@
-
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
@@ -15,23 +14,21 @@ app.use(express.json());
 app.get('/api/health', (req, res) => {
   const dbConnected = mongoose.connection.readyState === 1;
   res.status(dbConnected ? 200 : 503).json({
-      status: dbConnected ? 'ok' : 'warning',
-      database: dbConnected ? 'connected' : 'not connected',
-      uptime: process.uptime(),
+    status: dbConnected ? 'ok' : 'warning',
+    database: dbConnected ? 'connected' : 'not connected',
+    uptime: process.uptime(),
   });
 });
 
 // Auth route
 app.use('/api/auth', require('./routes/authRoutes'));
 
-
 // Export the app object for testing
 if (require.main === module) {
-    connectDB();
-    // If the file is run directly, start the server
-    const PORT = process.env.PORT || 5001;
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  }
+  connectDB();
+  // If the file is run directly, start the server
+  const PORT = process.env.PORT || 5001;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
 
-
-module.exports = app
+module.exports = app;
