@@ -1,0 +1,403 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="Se2XE1fLAwfZWnaCFuh1">
+    <mxGraphModel dx="2268" dy="1182" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-83" parent="1" style="html=1;shape=mxgraph.sysml.package;html=1;overflow=fill;whiteSpace=wrap;fillColor=light-dark(#FFFFFF,#000000);labelX=141.89;" value="&lt;p style=&quot;margin:0px;margin-top:4px;margin-left:10px;text-align:left;&quot;&gt;&lt;b&gt;Customer books car&lt;/b&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="1080" width="1400" x="-30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-82" parent="1" style="html=1;shape=mxgraph.sysml.package;html=1;overflow=fill;whiteSpace=wrap;fillColor=light-dark(#FFFFFF,#1A1A1A);" value="&lt;p style=&quot;margin:0px;margin-top:4px;margin-left:10px;text-align:left;&quot;&gt;&lt;b&gt;alt&lt;/b&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="600" width="1140" x="100" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-81" parent="1" style="html=1;shape=mxgraph.sysml.package;html=1;overflow=fill;whiteSpace=wrap;fillColor=light-dark(#FFFFFF,#331A00);" value="&lt;p style=&quot;margin:0px;margin-top:4px;margin-left:10px;text-align:left;&quot;&gt;&lt;b&gt;break&lt;/b&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="50.5" width="340" x="100" y="399.5" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-8" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;dashed=1;dashPattern=8 8;endArrow=none;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="1070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-1" parent="1" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;labelPerimeter=1;" value="Customer" vertex="1">
+          <mxGeometry height="60" width="29" x="150" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-9" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;dashed=1;dashPattern=8 8;endArrow=none;endFill=0;">
+          <mxGeometry relative="1" x="0.2857" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="1070" />
+              <mxPoint x="440" y="1070" />
+            </Array>
+            <mxPoint x="440" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value=":React client" vertex="1">
+          <mxGeometry height="60" width="120" x="380" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-10" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-46" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;endArrow=none;endFill=0;dashed=1;dashPattern=8 8;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="1070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value=":Express api" vertex="1">
+          <mxGeometry height="60" width="120" x="730" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-11" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-60" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;endArrow=none;endFill=0;dashed=1;dashPattern=8 8;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="1080" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value=":MongoDB" vertex="1">
+          <mxGeometry height="60" width="120" x="1130" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-13" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="DbPt2k-OkNgakCGWMiU4-16" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="202" as="sourcePoint" />
+            <mxPoint x="438.1500000000001" y="200.90999999999985" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-14" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-13" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="1: enter location, dates, tags search [R014]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-17" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;dashed=1;dashPattern=8 8;endArrow=none;endFill=0;" target="DbPt2k-OkNgakCGWMiU4-16" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="141" as="sourcePoint" />
+            <mxPoint x="440" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="90" width="10" x="435" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-19" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;endArrow=none;endFill=0;dashed=1;dashPattern=8 8;" target="DbPt2k-OkNgakCGWMiU4-18" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="141" as="sourcePoint" />
+            <mxPoint x="790" y="1020" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="70" width="10" x="785" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-21" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;endArrow=none;endFill=0;dashed=1;dashPattern=8 8;" target="DbPt2k-OkNgakCGWMiU4-20" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="140" as="sourcePoint" />
+            <mxPoint x="1190" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="50.5" width="10" x="1185" y="219.5" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-22" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.093;entryY=0.148;entryDx=0;entryDy=0;entryPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="445" y="210" as="sourcePoint" />
+            <mxPoint x="785.9299999999998" y="210.36" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-23" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-22" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="2: GET: /api/cars?query [R014]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-24" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-18" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1.133;exitY=0.13;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" target="DbPt2k-OkNgakCGWMiU4-20" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="810" y="230" as="sourcePoint" />
+            <mxPoint x="1150" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-25" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-24" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="3: GET: /api/cars?query [R014]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-28" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-20" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=1.092;entryY=0.862;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=8 8;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="DbPt2k-OkNgakCGWMiU4-18" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1170" y="267.75" as="sourcePoint" />
+            <mxPoint x="1370" y="312" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-29" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-28" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Result: cars[] [R014]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-30" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.001;exitY=0.859;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=8 8;entryX=1.033;entryY=0.885;entryDx=0;entryDy=0;entryPerimeter=0;" target="DbPt2k-OkNgakCGWMiU4-16" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="785" y="280" as="sourcePoint" />
+            <mxPoint x="450" y="281" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-31" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-30" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Result: 200 OK + cars[] [R014]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-32" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-16" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0;exitY=1;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="300" as="sourcePoint" />
+            <mxPoint x="170" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-33" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-32" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Show available cars [R014]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-35" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;dashed=1;dashPattern=8 8;endArrow=none;endFill=0;" target="DbPt2k-OkNgakCGWMiU4-34" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="290" as="sourcePoint" />
+            <mxPoint x="440" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="700" width="10" x="435" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-36" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="DbPt2k-OkNgakCGWMiU4-34" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="360" as="sourcePoint" />
+            <mxPoint x="485" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-37" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-36" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="4. Select car, submit form [R015]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-38" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="20" width="10" x="445" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-39" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-34" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.982;exitY=0.013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.985;entryY=0.106;entryDx=0;entryDy=0;entryPerimeter=0;" target="DbPt2k-OkNgakCGWMiU4-38" value="5: validate input() [R022]">
+          <mxGeometry height="50" relative="1" width="50" x="-0.0073" y="70" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="480" y="368.45" />
+              <mxPoint x="480" y="382.12" />
+            </Array>
+            <mxPoint x="620" y="500" as="sourcePoint" />
+            <mxPoint x="490" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-40" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=-0.017;exitY=0.113;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="434.99999999999994" y="426.9999999999999" as="sourcePoint" />
+            <mxPoint x="160.17" y="427.9" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-41" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-40" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Show validation error [R022]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-44" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-34" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1.033;exitY=0.142;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="DbPt2k-OkNgakCGWMiU4-46" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="440" as="sourcePoint" />
+            <mxPoint x="700" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-45" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-44" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="6: POST /api/bookings {carId, startDate, endDate}&lt;div&gt;Authorization: Bearer JWT [R015]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-47" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;endArrow=none;endFill=0;dashed=1;dashPattern=8 8;" target="DbPt2k-OkNgakCGWMiU4-46" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="280" as="sourcePoint" />
+            <mxPoint x="790" y="1020" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="580" width="10" x="785" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="20" width="10" x="795" y="506" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-49" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.982;exitY=0.013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.985;entryY=0.106;entryDx=0;entryDy=0;entryPerimeter=0;" target="DbPt2k-OkNgakCGWMiU4-48" value="7: validate JWT [R023]">
+          <mxGeometry height="50" relative="1" width="50" x="-0.0073" y="70" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="830" y="494.45000000000005" />
+              <mxPoint x="830" y="508.12" />
+            </Array>
+            <mxPoint x="795" y="494" as="sourcePoint" />
+            <mxPoint x="840" y="526" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="20" width="10" x="795" y="562" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-51" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.982;exitY=0.013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.985;entryY=0.106;entryDx=0;entryDy=0;entryPerimeter=0;" target="DbPt2k-OkNgakCGWMiU4-50" value="8: validate form [R022]">
+          <mxGeometry height="50" relative="1" width="50" x="0.0024" y="70" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="830" y="550.45" />
+              <mxPoint x="830" y="564.12" />
+            </Array>
+            <mxPoint x="795" y="550" as="sourcePoint" />
+            <mxPoint x="840" y="582" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-53" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-20" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;endArrow=none;endFill=0;dashed=1;dashPattern=8 8;" target="DbPt2k-OkNgakCGWMiU4-52" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="270" as="sourcePoint" />
+            <mxPoint x="1190" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-52" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="40" width="10" x="1185" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-54" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-46" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1.04;exitY=0.273;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="DbPt2k-OkNgakCGWMiU4-52" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="940" y="650" as="sourcePoint" />
+            <mxPoint x="1160" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-55" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-54" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="9: Find bookings for carId overlapping date range [R027]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-56" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-52" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.904;entryY=0.34;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=8 8;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="DbPt2k-OkNgakCGWMiU4-46" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1109" y="700" as="sourcePoint" />
+            <mxPoint x="720" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-57" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-56" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Result: None found [R027]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-58" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.912;exitY=0.245;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="DbPt2k-OkNgakCGWMiU4-60" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="795" y="720" as="sourcePoint" />
+            <mxPoint x="1140" y="721" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-59" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-58" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="10: Insert booking {cardId, startDate, endDate, userId)&amp;nbsp;[R015]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-61" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-52" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;endArrow=none;endFill=0;dashed=1;dashPattern=8 8;" target="DbPt2k-OkNgakCGWMiU4-60" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="660" as="sourcePoint" />
+            <mxPoint x="1190" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-60" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="40" width="10" x="1185" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-62" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-46" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;dashed=1;dashPattern=8 8;exitX=0.031;exitY=0.586;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.896;entryY=0.628;entryDx=0;entryDy=0;entryPerimeter=0;" target="DbPt2k-OkNgakCGWMiU4-34" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="850" y="820" as="sourcePoint" />
+            <mxPoint x="446.14" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-63" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-62" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Result: 201 Created + booking [R015]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-64" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-60" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=1.22;entryY=0.516;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=8 8;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="DbPt2k-OkNgakCGWMiU4-46" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1275" y="784.5" as="sourcePoint" />
+            <mxPoint x="886" y="785.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-65" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-64" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Result: Booking saved" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-66" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-34" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;dashed=1;dashPattern=8 8;exitX=-0.085;exitY=0.641;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="583" y="881" as="sourcePoint" />
+            <mxPoint x="160" y="808.7" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-67" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-66" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Show booking confirmation [R015]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-68" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-46" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;dashed=1;dashPattern=8 8;exitX=-0.033;exitY=0.722;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.033;entryY=0.741;entryDx=0;entryDy=0;entryPerimeter=0;" target="DbPt2k-OkNgakCGWMiU4-34" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="778" y="881" as="sourcePoint" />
+            <mxPoint x="445.88" y="878.6" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-69" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-68" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Result: 401 Unauthorised [R023]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-70" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-34" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;dashed=1;dashPattern=8 8;exitX=-0.033;exitY=0.756;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="395" y="930" as="sourcePoint" />
+            <mxPoint x="160" y="889.2" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-71" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-70" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Show unauthorised page (no redirect) [R023]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-72" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-46" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=1.088;entryY=0.856;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=8 8;exitX=0.031;exitY=0.862;exitDx=0;exitDy=0;exitPerimeter=0;" target="DbPt2k-OkNgakCGWMiU4-34" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="765" y="960" as="sourcePoint" />
+            <mxPoint x="425" y="960" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-73" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-72" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Result: 400 Bad request - validation message [R022]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-74" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-46" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=1.137;entryY=0.969;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=8 8;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="DbPt2k-OkNgakCGWMiU4-34" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="750" y="1040" as="sourcePoint" />
+            <mxPoint x="360" y="1099" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-75" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-74" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Result: 409 Conflict - car already booked [R027]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-77" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-34" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;dashed=1;dashPattern=8 8;exitX=0.071;exitY=0.87;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="395" y="980" as="sourcePoint" />
+            <mxPoint x="160" y="970" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-78" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-77" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Show validation error message [R022]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-79" edge="1" parent="1" source="DbPt2k-OkNgakCGWMiU4-34" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;dashed=1;dashPattern=8 8;exitX=0.071;exitY=0.985;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="415" y="1050" as="sourcePoint" />
+            <mxPoint x="160" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-80" connectable="0" parent="DbPt2k-OkNgakCGWMiU4-79" style="edgeLabel;resizable=0;html=1;inheritText=1;;align=center;verticalAlign=middle;defaultLabelBackgroundColor=page;" value="Show car not available [R027]" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-93" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="[Valid JWT, valid input, car available]" vertex="1">
+          <mxGeometry height="30" width="220" x="100" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-94" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="[Invalid JWT]" vertex="1">
+          <mxGeometry height="30" width="90" x="100" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-95" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="[Invalid input]" vertex="1">
+          <mxGeometry height="30" width="90" x="100" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="DbPt2k-OkNgakCGWMiU4-96" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="[Car not available]" vertex="1">
+          <mxGeometry height="30" width="130" x="91" y="995" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
