@@ -11,7 +11,6 @@ function Form({ formTitle, className, fields, schema, submitLabel, onSubmit }) {
   } = useForm({
     resolver: zodResolver(schema),
   });
-  console.log(errors);
   return (
     <form
       className={clsx('bg-white p-6 shadow-md rounded', className)}
@@ -33,7 +32,7 @@ function Form({ formTitle, className, fields, schema, submitLabel, onSubmit }) {
             <p className="text-sm text-gray-500">{field.hint}</p>
           ) : null}
           {errors[field.name] ? (
-            <p className="text-sm text-red-500">hello{errors[field.name].message}</p>
+            <p className="text-sm text-red-500">{errors[field.name].message}</p>
           ) : null}
         </div>
       ))}
