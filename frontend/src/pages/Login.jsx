@@ -1,46 +1,50 @@
-import { useState } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { z } from 'zod';
+
 import axiosInstance from '../axiosConfig';
+import Form from '../components/form/Form';
+import { useAuth } from '../context/AuthContext';
+
+const schema = z.object({
+  email: z.string().email('Invalid email address'),
+  password: z.string().min(1, 'Password is required'),
+});
+
+const fields = [
+  { name: 'email', label: 'Email', type: 'email', placeholder: 'Email' },
+  { name: 'password', label: 'Password', type: 'password', placeholder: 'Password' },
+];
 
 const Login = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (data, setError) => {
     try {
-      const response = await axiosInstance.post('/api/auth/login', formData);
+      const response = await axiosInstance.post('/api/auth/login', data);
       login(response.data);
-      navigate('/book');
+      navigate('/');
     } catch (error) {
-      alert('Login failed. Please try again.');
+      const errorMessage = error.response?.data?.message || 'Login failed. Please try again.';
+      setError(errorMessage);
     }
   };
 
   return (
     <div className="max-w-md mx-auto mt-20">
-      <form onSubmit={handleSubmit} className="bg-white p-6 shadow-md rounded">
-        <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
-        <input
-          type="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full mb-4 p-2 border rounded"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-          className="w-full mb-4 p-2 border rounded"
-        />
-        <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded">
-          Login
-        </button>
-      </form>
+      <Form
+        formTitle="Login"
+        fields={fields}
+        schema={schema}
+        submitLabel="Login"
+        onSubmit={handleSubmit}
+      />
+      <p className="text-center text-sm">
+        Don't have an account?{' '}
+        <Link className="text-blue-500 hover:underline" to="/register">
+          Register
+        </Link>
+      </p>
     </div>
   );
 };
