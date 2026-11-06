@@ -36,6 +36,11 @@ function Form({ formTitle, className, fields, schema, submitLabel, onSubmit }) {
           ) : null}
         </div>
       ))}
+      {errors.root ? (
+        <p className="text-sm text-red-500 mb-4 text-center" role="alert">
+          {errors.root.message}
+        </p>
+      ) : null}
       <button className="w-full bg-blue-600 text-white p-2 rounded" type="submit">
         {submitLabel}
       </button>
