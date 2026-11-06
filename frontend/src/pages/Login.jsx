@@ -33,6 +33,7 @@ const Login = () => {
   return (
     <div className="max-w-md mx-auto mt-20">
       <Form
+        className="bg-white p-6 shadow-md rounded mb-4"
         formTitle="Login"
         fields={fields}
         schema={schema}
