@@ -18,7 +18,7 @@ const Navbar = () => {
       <div>
         {user ? (
           <>
-            <Link to="/book" className="mr-4">
+            <Link to="/" className="mr-4">
               Book a car
             </Link>
             <Link to="/profile" className="mr-4">
