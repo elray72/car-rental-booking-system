@@ -1,5 +1,4 @@
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
 import axiosInstance from '../axiosConfig';
@@ -34,12 +33,18 @@ const Login = () => {
   return (
     <div className="max-w-md mx-auto mt-20">
       <Form
-        title="Login"
+        formTitle="Login"
         fields={fields}
         schema={schema}
         submitLabel="Login"
         onSubmit={handleSubmit}
       />
+      <p className="text-center text-sm">
+        Don't have an account?{' '}
+        <Link className="text-blue-500 hover:underline" to="/register">
+          Register
+        </Link>
+      </p>
     </div>
   );
 };
