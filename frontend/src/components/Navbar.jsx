@@ -13,13 +13,13 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-600 text-white p-4 flex justify-between items-center">
       <Link to="/" className="text-2xl font-bold">
-        Your apps name
+        Sunshine Car Rentals
       </Link>
       <div>
         {user ? (
           <>
-            <Link to="/tasks" className="mr-4">
-              CRUD
+            <Link to="/book" className="mr-4">
+              Book a car
             </Link>
             <Link to="/profile" className="mr-4">
               Profile

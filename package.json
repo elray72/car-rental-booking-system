@@ -1,13 +1,14 @@
 {
-  "name": "task-manager",
+  "name": "car-rental-booking-system",
   "version": "1.0.0",
-  "description": "Complete MERN Task Manager Application",
+  "description": "Sunshine Rentals booking system on MERN stack",
   "scripts": {
     "install-all": "npm install && npm install --prefix backend && npm install --prefix frontend",
     "start": "concurrently \"npm run prod --prefix backend\" \"npm start --prefix frontend\"",
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
     "lint": "prettier --check .",
-    "lint:fix": "prettier --write ."
+    "lint:fix": "prettier --write .",
+    "test": "npm test --prefix backend && CI=true npm test --prefix frontend -- --watchAll=false"
   },
   "devDependencies": {
     "chai": "^5.1.2",
@@ -15,6 +16,6 @@
     "mocha": "^11.0.1",
     "prettier": "^3.9.10"
   },
-  "author": "Task Manager Team",
+  "author": "Sunshine Car Rentals Team",
   "license": "ISC"
 }
