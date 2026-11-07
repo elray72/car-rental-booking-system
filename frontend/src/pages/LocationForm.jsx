@@ -6,6 +6,7 @@ import { z } from 'zod';
 import axiosInstance from '../axiosConfig';
 import Form from '../components/form/Form';
 import { useAuth } from '../context/AuthContext';
+import { authConfig } from '../helpers';
 
 const schema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -51,7 +52,7 @@ const LocationCreate = () => {
   }, [id]);
 
   const handleSubmit = async (data, setError) => {
-    const config = { headers: { Authorization: `Bearer ${user.token}` } };
+    const config = authConfig(user.token);
     try {
       if (id) {
         await axiosInstance.put(`/api/locations/${id}`, data, config);
@@ -71,7 +72,7 @@ const LocationCreate = () => {
 
   const handleDelete = async () => {
     if (!window.confirm('Delete this location?')) return;
-    const config = { headers: { Authorization: `Bearer ${user.token}` } };
+    const config = authConfig(user.token);
 
     try {
       await axiosInstance.delete(`/api/locations/${id}`, config);
