@@ -2,9 +2,13 @@ import { Navigate } from 'react-router-dom';
 
 import { useAuth } from '../../context/AuthContext';
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ children, role }) {
   const { user } = useAuth();
   if (!user?.token) return <Navigate to="/login" replace />;
+
+  const allowed = role == null ? null : [].concat(role);
+  if (allowed && !allowed.includes(user.role)) return <Navigate to="/" replace />;
+
   return children;
 }
 

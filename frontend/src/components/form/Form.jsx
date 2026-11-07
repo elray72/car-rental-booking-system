@@ -2,7 +2,17 @@ import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-function Form({ formTitle, className, fields, schema, submitLabel, onSubmit }) {
+function Form({
+  formTitle,
+  className,
+  fields,
+  formError,
+  schema,
+  submitLabel,
+  defaultValues = {},
+  onDelete,
+  onSubmit,
+}) {
   const {
     register,
     handleSubmit,
@@ -10,6 +20,7 @@ function Form({ formTitle, className, fields, schema, submitLabel, onSubmit }) {
     setError,
   } = useForm({
     resolver: zodResolver(schema),
+    defaultValues,
   });
   return (
     <form
@@ -41,9 +52,23 @@ function Form({ formTitle, className, fields, schema, submitLabel, onSubmit }) {
           {errors.root.message}
         </p>
       ) : null}
+      {formError ? (
+        <p className="text-sm text-red-500 mt-4 text-center" role="alert">
+          {formError}
+        </p>
+      ) : null}
       <button className="w-full bg-blue-600 text-white p-2 rounded" type="submit">
         {submitLabel}
       </button>
+      {onDelete ? (
+        <button
+          className="w-full mt-2 bg-red-500 text-white p-2 rounded"
+          type="button"
+          onClick={onDelete}
+        >
+          Delete location
+        </button>
+      ) : null}
     </form>
   );
 }
