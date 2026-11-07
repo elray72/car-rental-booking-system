@@ -32,6 +32,8 @@ The decision on method of persistence was based on the following factors:
 The options were `local storage`, `session storage` or `cookies`. Local storage was decided as the best option given it's ability to persist through tabs and ease of implementation, however it does not expire and is more suitable for things like user settings (Max, 2025). This approach is in conflict with our security requirement. We can move to cookie storage at a later date for better
 security.
 
+Update Nov 7, 2026: Implemented cookies with expiry in CR-12 to satisfy R024.
+
 ---
 
 ### Design alignment
