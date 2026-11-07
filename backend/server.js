@@ -20,8 +20,9 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Auth route
+// Routes
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/locations', require('./routes/locationRoutes'));
 
 // Export the app object for testing
 if (require.main === module) {
