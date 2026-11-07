@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-function Form({ formTitle, className, fields, schema, submitLabel, onSubmit }) {
+function Form({ formTitle, className, fields, schema, submitLabel, onSubmit, defaultValues = {} }) {
   const {
     register,
     handleSubmit,
@@ -10,6 +10,7 @@ function Form({ formTitle, className, fields, schema, submitLabel, onSubmit }) {
     setError,
   } = useForm({
     resolver: zodResolver(schema),
+    defaultValues,
   });
   return (
     <form
