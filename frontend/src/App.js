@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/common/Navbar';
 import ProtectedRoute from './components/common/ProtectedRoute';
+import Locations from './pages/Locations';
 import Book from './pages/Book';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
@@ -19,6 +21,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          }
+        />
+        {/* Staff / Admin routes */}
+        <Route
+          path="/locations"
+          element={
+            <ProtectedRoute role={['admin', 'staff']}>
+              <Locations />
             </ProtectedRoute>
           }
         />
