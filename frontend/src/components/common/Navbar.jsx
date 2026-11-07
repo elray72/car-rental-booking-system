@@ -42,6 +42,9 @@ const Navbar = () => {
   const renderAdminMenu = () => {
     return (
       <>
+        <Link to="/cars" className="mr-4">
+          Cars
+        </Link>
         <Link to="/locations" className="mr-4">
           Locations
         </Link>

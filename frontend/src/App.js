@@ -2,9 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/common/Navbar';
 import ProtectedRoute from './components/common/ProtectedRoute';
-import LocationForm from './pages/LocationForm';
-import Locations from './pages/Locations';
 import Book from './pages/Book';
+import Cars from './pages/Cars';
+import Locations from './pages/Locations';
+import LocationForm from './pages/LocationForm';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
@@ -26,6 +27,14 @@ function App() {
           }
         />
         {/* Admin routes */}
+        <Route
+          path="/cars"
+          element={
+            <ProtectedRoute role="admin">
+              <Cars />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/locations"
           element={
