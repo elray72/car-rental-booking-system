@@ -22,6 +22,7 @@ app.get('/api/health', (req, res) => {
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/cars', require('./routes/carRoutes'));
 app.use('/api/locations', require('./routes/locationRoutes'));
 
 // Export the app object for testing
