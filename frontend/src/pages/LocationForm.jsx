@@ -26,6 +26,7 @@ const LocationCreate = () => {
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(Boolean(id));
   const [loadError, setLoadError] = useState('');
+  const [deleteError, setDeleteError] = useState('');
 
   useEffect(() => {
     if (!id) return;
@@ -68,6 +69,18 @@ const LocationCreate = () => {
     }
   };
 
+  const handleDelete = async () => {
+    if (!window.confirm('Delete this location?')) return;
+    const config = { headers: { Authorization: `Bearer ${user.token}` } };
+
+    try {
+      await axiosInstance.delete(`/api/locations/${id}`, config);
+      navigate('/locations');
+    } catch (error) {
+      setDeleteError(error.response?.data?.message || 'Unable to delete location.');
+    }
+  };
+
   if (loadError) {
     return <p className="text-center text-red-500 mt-20">{loadError}</p>;
   }
@@ -85,6 +98,7 @@ const LocationCreate = () => {
       <Form
         formTitle={id ? 'Edit location' : 'Add location'}
         fields={fields}
+        formError={deleteError}
         schema={schema}
         submitLabel={id ? 'Save changes' : 'Add location'}
         defaultValues={
@@ -93,6 +107,7 @@ const LocationCreate = () => {
             : undefined
         }
         onSubmit={handleSubmit}
+        onDelete={id ? handleDelete : undefined}
       />
       <p className="text-center text-sm mt-4">
         <Link className="text-blue-500 hover:underline" to="/locations">
