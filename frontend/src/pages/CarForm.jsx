@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import { z } from 'zod';
 
@@ -21,8 +21,10 @@ const schema = z.object({
 });
 
 const CarForm = () => {
+  const { id: carId } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const [car, setCar] = useState(null);
   const [locations, setLocations] = useState([]);
   const [tagOptions, setTagOptions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,10 +33,14 @@ const CarForm = () => {
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const [locationsResponse, tagsResponse] = await Promise.all([
+        const [carResponse, locationsResponse, tagsResponse] = await Promise.all([
+          carId
+            ? axiosInstance.get(`/api/cars/${carId}`, authConfig(user.token))
+            : Promise.resolve(null),
           axiosInstance.get('/api/locations'),
           axiosInstance.get('/api/cars/tags', authConfig(user.token)),
         ]);
+        setCar(carResponse?.data ?? null);
         setLocations(locationsResponse.data);
         setTagOptions(tagsResponse.data.map((tag) => ({ label: tag, value: tag })));
       } catch (error) {
@@ -45,7 +51,7 @@ const CarForm = () => {
     };
 
     fetchFormData();
-  }, [user.token]);
+  }, [carId, user.token]);
 
   const fields = [
     { name: 'make', label: 'Make', type: 'text' },
@@ -69,7 +75,15 @@ const CarForm = () => {
 
   const handleSubmit = async (data, setError) => {
     try {
-      await axiosInstance.post('/api/cars', data, authConfig(user.token));
+      // Add car
+      if (!carId) {
+        await axiosInstance.post('/api/cars', data, authConfig(user.token));
+        navigate('/cars');
+        return;
+      }
+
+      // Edit car
+      await axiosInstance.put(`/api/cars/${carId}`, data, authConfig(user.token));
       navigate('/cars');
     } catch (error) {
       const { message, field } = error.response?.data || {};
@@ -92,14 +106,32 @@ const CarForm = () => {
     );
   }
 
+  const carValues = car
+    ? {
+        nickname: car.nickname,
+        rego: car.rego,
+        make: car.make,
+        model: car.model,
+        year: car.year,
+        color: car.color,
+        dailyRate: car.dailyRate,
+        location: car.location?._id || '',
+        tags: car.tags || [],
+      }
+    : {
+        location: '',
+        dailyRate: 0,
+        tags: [],
+      };
+
   return (
     <div className="max-w-md mx-auto mt-20">
       <Form
-        formTitle="Add car"
+        formTitle={!carId ? 'Add car' : 'Edit car'}
         fields={fields}
         schema={schema}
-        submitLabel="Add car"
-        defaultValues={{ location: '', dailyRate: 0, tags: [] }}
+        submitLabel={!carId ? 'Add car' : 'Save changes'}
+        defaultValues={carValues}
         onSubmit={handleSubmit}
       />
       <p className="text-center text-sm mt-4">

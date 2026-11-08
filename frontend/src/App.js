@@ -57,6 +57,14 @@ function App() {
           }
         />
         <Route
+          path="/cars/:id/edit"
+          element={
+            <ProtectedRoute role={['admin']}>
+              <CarForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/locations/create"
           element={
             <ProtectedRoute role={['admin']}>

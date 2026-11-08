@@ -71,6 +71,21 @@ const listCars = async (req, res) => {
   }
 };
 
+const getCar = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid car id' });
+  }
+
+  try {
+    const car = await Car.findById(id).populate('location', 'code name');
+    if (!car) return res.status(404).json({ message: 'Car not found' });
+    res.json(car);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const createCar = async (req, res) => {
   const parsedCar = await parseCar(req.body);
   if (parsedCar.error) return res.status(400).json(parsedCar.error);
@@ -100,8 +115,46 @@ const createCar = async (req, res) => {
   }
 };
 
+const updateCar = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid car id' });
+  }
+
+  const parsedCar = await parseCar(req.body);
+  if (parsedCar.error) return res.status(400).json(parsedCar.error);
+
+  try {
+    const car = await Car.findById(id);
+    if (!car) return res.status(404).json({ message: 'Car not found' });
+
+    const regoTaken = await Car.findOne({ rego: parsedCar.values.rego });
+    if (regoTaken && regoTaken.id !== car.id) {
+      return res.status(400).json({
+        message: 'A car with this rego already exists',
+        field: 'rego',
+        value: parsedCar.values.rego,
+      });
+    }
+    Object.assign(car, parsedCar.values);
+
+    await car.save();
+    await car.populate('location', 'code name');
+    res.json(car);
+  } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).json({
+        message: 'A car with this rego already exists',
+        field: 'rego',
+        value: parsedCar.values.rego,
+      });
+    }
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const listTags = (req, res) => {
   res.json(TAGS);
 };
 
-module.exports = { listCars, createCar, listTags };
+module.exports = { listCars, getCar, createCar, updateCar, listTags };
