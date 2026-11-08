@@ -34,22 +34,21 @@ const LocationCreate = () => {
 
     const fetchLocation = async () => {
       try {
-        const response = await axiosInstance.get('/api/locations');
-        const match = response.data.find((item) => item._id === id);
-        if (!match) {
+        const response = await axiosInstance.get(`/api/locations/${id}`, authConfig(user.token));
+        setLocation(response.data);
+      } catch (error) {
+        if (error.response?.status === 404) {
           setLoadError('Location not found.');
         } else {
-          setLocation(match);
+          setLoadError('Failed to load location.');
         }
-      } catch (error) {
-        setLoadError('Failed to load location.');
       } finally {
         setLoading(false);
       }
     };
 
     fetchLocation();
-  }, [id]);
+  }, [id, user.token]);
 
   const handleSubmit = async (data, setError) => {
     const config = authConfig(user.token);
