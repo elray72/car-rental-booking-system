@@ -16,7 +16,7 @@ const schema = z.object({
   year: z.coerce.number().int().positive('Please enter a valid year'),
   color: z.string().min(1, 'Colour is required'),
   dailyRate: z.coerce.number(),
-  location: z.string(),
+  location: z.string().min(1, 'Location is required'),
   tags: z.array(z.string()),
   status: z.enum(['Active', 'Retired'], { error: 'Status must be Active or Retired' }),
 });

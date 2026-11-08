@@ -31,13 +31,13 @@ const parseCar = async (car) => {
   const dailyRate = Number(car.dailyRate);
   const resolvedDailyRate = Number.isFinite(dailyRate) ? dailyRate : 0;
 
-  // Location - resolve location to null if not a valid object id
-  const locationId = car.location || null;
-  let location = null;
-  if (locationId && mongoose.Types.ObjectId.isValid(locationId)) {
-    location = await Location.findById(locationId);
+  // Location - one existing location is required
+  const locationId = car.location;
+  if (!locationId || !mongoose.Types.ObjectId.isValid(locationId)) {
+    return { error: { message: 'A valid location is required', field: 'location' } };
   }
-  if (locationId && !location) {
+  const location = await Location.findById(locationId);
+  if (!location) {
     return { error: { message: 'Location not found', field: 'location' } };
   }
 

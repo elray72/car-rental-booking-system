@@ -11,7 +11,7 @@ const carSchema = new mongoose.Schema({
   year: { type: Number, required: true },
   color: { type: String, required: true, trim: true },
   dailyRate: { type: Number, required: true, default: 0 },
-  location: { type: mongoose.Schema.Types.ObjectId, ref: 'Location' },
+  location: { type: mongoose.Schema.Types.ObjectId, ref: 'Location', required: true },
   tags: {
     type: [
       {
