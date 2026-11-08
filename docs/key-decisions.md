@@ -51,19 +51,32 @@ Due to compressed timelines, the core functionality will be built ahead of aligm
 
 `react-select` was selected to enabled multiple checkbox, `react-multi-select-component` was initially proposed, but `react-select` suited the aesthetic better with 'pills' and popularity 11m weekly downloads vs 100k (NPM, 2025).
 
+---
+
 ### Data models
 
 - Most fields will use `trim()` to ensure data integrity and avoid bugs related to trailing spaces. This will be applied to what makes sense, vs as a global rule.
+
+---
 
 #### Car
 
 `car.location` was initially going to required, but decided we'll remove that requirement.
 
+#### Design
+
+GenAI was used via Canva to add a slight blur to the stock photo (Canva, n.d.) for a photograph of the Gold Coast skyline acquired via Pexels (Patel, n.d.). This will be used for the home page banner.
+
 ---
 
 ## References
 
+Canva. (n.d.). Canva [Computer software]. [https://www.canva.com](https://www.canva.com)
+
 Google. (2026). Gemini (Gemini 1.5 Flash) [Large language model](https://gemini.google.com/)
+
+Patel, Parth (n.d). _Stunning aerial view of Gold Coast Skyline at Dusk_
+Pexels. [https://www.pexels.com/photo/stunning-aerial-view-of-gold-coast-skyline-at-dusk-37845991/](https://www.pexels.com/photo/stunning-aerial-view-of-gold-coast-skyline-at-dusk-37845991/)
 
 Max, A. (2025, July 31). _LocalStorage vs SessionStorage vs Cookies: A Complete Guide_
 DEV Community. [https://dev.to/hmpljs/localstorage-vs-sessionstorage-vs-cookies-a-complete-guide-3m6d](https://dev.to/hmpljs/localstorage-vs-sessionstorage-vs-cookies-a-complete-guide-3m6d)
