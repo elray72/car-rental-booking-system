@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.get('/', protect, authorize(['admin']), listCars);
 router.post('/', protect, authorize(['admin']), createCar);
-router.get('/tags', protect, authorize(['admin']), listTags);
+router.get('/tags', listTags);
 
 module.exports = router;

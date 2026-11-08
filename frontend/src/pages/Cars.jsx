@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Select from 'react-select';
 import { BounceLoader } from 'react-spinners';
 
@@ -24,6 +25,7 @@ const TAG_OPTIONS = CAR_TAGS.map((tag) => ({ label: tag, value: tag }));
 const Cars = () => {
   const { user } = useAuth();
   const [cars, setCars] = useState([]);
+  const [carTags, setCarTags] = useState([]);
   const [locations, setLocations] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
@@ -33,11 +35,13 @@ const Cars = () => {
     // Make both requests in parallel, allows use to combine error/loading handling
     const fetchCarsAndLocations = async () => {
       try {
-        const [carsResponse, locationsResponse] = await Promise.all([
+        const [carsResponse, tagsResponse, locationsResponse] = await Promise.all([
           axiosInstance.get('/api/cars', authConfig(user.token)),
+          axiosInstance.get('/api/cars/tags'),
           axiosInstance.get('/api/locations'),
         ]);
         setCars(carsResponse.data);
+        setCarTags(tagsResponse.data.map((tag) => ({ label: tag, value: tag })));
         setLocations(locationsResponse.data);
       } catch (error) {
         setError(error.response?.data?.message || error.message);
@@ -79,6 +83,13 @@ const Cars = () => {
     <div className="max-w-6xl mx-auto mt-20">
       <div className="bg-white p-6 shadow-md rounded">
         <h1 className="text-2xl font-bold mb-4 text-center">Cars</h1>
+        <div className="flex justify-end mb-4">
+          {user?.role === 'admin' ? (
+            <Link to="/cars/create" className="bg-blue-600 text-white px-4 py-2 rounded">
+              Add car
+            </Link>
+          ) : null}
+        </div>
         <div className="flex gap-4 mb-4 justify-end">
           <select
             className="p-2 border rounded"
@@ -135,7 +146,7 @@ const Cars = () => {
                       <th className="p-2 border-b">Year</th>
                       <th className="p-2 border-b">Nickname</th>
                       <th className="p-2 border-b">Rego</th>
-                      <th className="p-2 border-b">Color</th>
+                      <th className="p-2 border-b">Colour</th>
                       <th className="p-2 border-b">Daily rate</th>
                       <th className="p-2 border-b">Location</th>
                       <th className="p-2 border-b">Tags</th>
