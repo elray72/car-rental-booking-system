@@ -18,6 +18,7 @@ const schema = z.object({
   dailyRate: z.coerce.number(),
   location: z.string(),
   tags: z.array(z.string()),
+  status: z.enum(['Active', 'Retired']),
 });
 
 const CarForm = () => {
@@ -71,6 +72,15 @@ const CarForm = () => {
       })),
     },
     { name: 'tags', label: 'Tags', type: 'multi-select', options: tagOptions },
+    {
+      name: 'status',
+      label: 'Status',
+      type: 'select',
+      options: [
+        { value: 'Active', label: 'Active' },
+        { value: 'Retired', label: 'Retired' },
+      ],
+    },
   ];
 
   const handleSubmit = async (data, setError) => {
@@ -117,6 +127,7 @@ const CarForm = () => {
         dailyRate: car.dailyRate,
         location: car.location?._id || '',
         tags: car.tags || [],
+        status: car.status,
       }
     : {
         location: '',

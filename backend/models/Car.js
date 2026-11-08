@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+const STATUS = ['Active', 'Retired'];
 const TAGS = ['small', 'medium', 'large', 'suv', 'van', 'ute', 'ev', 'hybrid', 'luxury', 'sports'];
 
 const carSchema = new mongoose.Schema({
@@ -20,8 +21,9 @@ const carSchema = new mongoose.Schema({
     ],
     default: [],
   },
-  status: { type: String, enum: ['Active', 'Retired'], default: 'Active' },
+  status: { type: String, enum: STATUS, default: 'Active' },
 });
 
 module.exports = mongoose.model('Car', carSchema);
+module.exports.STATUS = STATUS;
 module.exports.TAGS = TAGS;

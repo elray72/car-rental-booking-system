@@ -3,7 +3,7 @@ const Car = require('../models/Car');
 const Location = require('../models/Location');
 const { text } = require('../common/text');
 
-const { TAGS } = Car;
+const { STATUS, TAGS } = Car;
 
 const parseCar = async (car) => {
   const nickname = text(car.nickname);
@@ -47,6 +47,12 @@ const parseCar = async (car) => {
     return { error: { message: 'Invalid tag', field: 'tags' } };
   }
 
+  // Status - resolve status to 'Active' if not a valid status
+  const status = car.status || 'Active';
+  if (!STATUS.includes(status)) {
+    return { error: { message: 'Status must be Active or Retired', field: 'status' } };
+  }
+
   return {
     values: {
       nickname,
@@ -58,6 +64,7 @@ const parseCar = async (car) => {
       dailyRate: resolvedDailyRate,
       location: locationId,
       tags,
+      status,
     },
   };
 };
