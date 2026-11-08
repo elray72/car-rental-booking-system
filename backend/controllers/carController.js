@@ -79,6 +79,7 @@ const createCar = async (req, res) => {
     return res.status(400).json({
       message: 'A car with this rego already exists',
       field: 'rego',
+      value: parsedCar.values.rego,
     });
   }
 
@@ -89,7 +90,7 @@ const createCar = async (req, res) => {
   } catch (error) {
     if (error.code === 11000) {
       return res.status(400).json({
-        message: 'A car with rego already exists',
+        message: 'A car with this rego already exists',
         field: 'rego',
         value: parsedCar.values.rego,
       });
