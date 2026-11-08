@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { GiStripedSun } from 'react-icons/gi';
 import { useAuth } from '../../context/AuthContext';
 
 const Navbar = () => {
@@ -73,7 +74,10 @@ const Navbar = () => {
 
   return (
     <nav className="bg-blue-600 text-white p-4 flex justify-between items-center">
-      <Link to="/" className="text-2xl font-bold">
+      <Link to="/" className="text-2xl font-bold flex items-center gap-2">
+        <div className="rounded-md bg-white p-1">
+          <GiStripedSun className="text-blue-600 w-6 h-6" />
+        </div>
         Sunshine Car Rentals
       </Link>
       <div>
