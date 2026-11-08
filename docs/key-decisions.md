@@ -42,9 +42,20 @@ Due to compressed timelines, the core functionality will be built ahead of aligm
 
 ---
 
+### Multi-select box
+`react-select` was selected to enabled multiple checkbox, `react-multi-select-component` was initially proposed, but `react-select` suited the aesthetic better with 'pills' and popularity 11m weekly downloads vs 100k (NPM, 2025).
+
+---
+
 ## References
 
 Google. (2026). Gemini (Gemini 1.5 Flash) [Large language model](https://gemini.google.com/)
 
 Max, A. (2025, July 31). _LocalStorage vs SessionStorage vs Cookies: A Complete Guide_
 DEV Community. [https://dev.to/hmpljs/localstorage-vs-sessionstorage-vs-cookies-a-complete-guide-3m6d](https://dev.to/hmpljs/localstorage-vs-sessionstorage-vs-cookies-a-complete-guide-3m6d)
+
+Watson, J. (2025, Jully 11). _react-select_
+NPM JS. [https://www.npmjs.com/package/react-select](https://www.npmjs.com/package/react-select)
+
+Zalavadiya, H. (2022, October 7). _react-multi-select-component_
+NPM JS. [https://www.npmjs.com/package/react-multi-select-component](https://www.npmjs.com/package/react-multi-select-component)
