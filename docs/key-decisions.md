@@ -20,6 +20,11 @@ The decided roles will be `customer`, `staff` and `admin`.
 1. The registration process will have create users with the 'customer' role by default.
 2. Staff members who register will have their roles promoted to 'staff' or 'admin' via database input in this iteration.
 
+#### Visibility:
+
+- Locations can be viewed by Staff and Admin but only Admin may edit and delete
+- Cars visibility was originally set to Admin only but will now be visible to Staff but not editable, retirable
+
 ---
 
 ### Local storage vs Session storage vs Cookies
@@ -43,7 +48,16 @@ Due to compressed timelines, the core functionality will be built ahead of aligm
 ---
 
 ### Multi-select box
+
 `react-select` was selected to enabled multiple checkbox, `react-multi-select-component` was initially proposed, but `react-select` suited the aesthetic better with 'pills' and popularity 11m weekly downloads vs 100k (NPM, 2025).
+
+### Data models
+
+- Most fields will use `trim()` to ensure data integrity and avoid bugs related to trailing spaces. This will be applied to what makes sense, vs as a global rule.
+
+#### Car
+
+`car.location` was initially going to required, but decided we'll remove that requirement.
 
 ---
 
