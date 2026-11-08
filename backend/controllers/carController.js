@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Car = require('../models/Car');
 const Location = require('../models/Location');
+const { text } = require('../common/text');
 
 const { TAGS } = Car;
 
