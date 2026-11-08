@@ -1,6 +1,10 @@
 import clsx from 'clsx';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+
+import FormInput from './FormInput';
+import FormSelect from './FormSelect';
+import FormMultiSelect from './FormMultiSelect';
 
 function Form({
   formTitle,
@@ -14,6 +18,7 @@ function Form({
   onSubmit,
 }) {
   const {
+    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -29,24 +34,30 @@ function Form({
       onSubmit={handleSubmit((data) => onSubmit(data, setError))}
     >
       <h1 className="text-2xl font-bold mb-4 text-center">{formTitle}</h1>
-      {fields.map((field) => (
-        <div className="flex flex-col mb-4 gap-2" key={field.name}>
-          <label htmlFor={field.name}>{field.label}</label>
-          <input
-            className="w-full p-2 border rounded"
-            type={field.type}
-            id={field.name}
-            autoComplete="off"
-            {...register(field.name)}
+      {fields.map((field) =>
+        field.type === 'select' ? (
+          <FormSelect
+            key={field.name}
+            field={field}
+            register={register}
+            error={errors[field.name]}
           />
-          {field.hint && !errors[field.name] ? (
-            <p className="text-sm text-gray-500">{field.hint}</p>
-          ) : null}
-          {errors[field.name] ? (
-            <p className="text-sm text-red-500">{errors[field.name].message}</p>
-          ) : null}
-        </div>
-      ))}
+        ) : field.type === 'multi-select' ? (
+          <FormMultiSelect
+            key={field.name}
+            field={field}
+            control={control}
+            error={errors[field.name]}
+          />
+        ) : (
+          <FormInput
+            key={field.name}
+            field={field}
+            register={register}
+            error={errors[field.name]}
+          />
+        ),
+      )}
       {errors.root ? (
         <p className="text-sm text-red-500 mb-4 text-center" role="alert">
           {errors.root.message}
