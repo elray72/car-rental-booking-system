@@ -48,7 +48,7 @@ const LocationCreate = () => {
     };
 
     fetchLocation();
-  }, [id]);
+  }, [id, user.token]);
 
   const handleSubmit = async (data, setError) => {
     const config = authConfig(user.token);
