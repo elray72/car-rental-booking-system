@@ -21,6 +21,7 @@ The decided roles will be `customer`, `staff` and `admin`.
 2. Staff members who register will have their roles promoted to 'staff' or 'admin' via database input in this iteration.
 
 #### Visibility:
+
 - Locations can be viewed by Staff and Admin but only Admin may edit and delete
 - Cars visibility was originally set to Admin only but will now be visible to Staff but not editable, retirable
 
