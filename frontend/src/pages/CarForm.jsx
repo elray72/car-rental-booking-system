@@ -18,7 +18,7 @@ const schema = z.object({
   dailyRate: z.coerce.number(),
   location: z.string(),
   tags: z.array(z.string()),
-  status: z.enum(['Active', 'Retired']),
+  status: z.enum(['Active', 'Retired'], { error: 'Status must be Active or Retired' }),
 });
 
 const CarForm = () => {
