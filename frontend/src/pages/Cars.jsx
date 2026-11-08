@@ -25,7 +25,7 @@ const TAG_OPTIONS = CAR_TAGS.map((tag) => ({ label: tag, value: tag }));
 const Cars = () => {
   const { user } = useAuth();
   const [cars, setCars] = useState([]);
-  const [carTags, setCarTags] = useState([]);
+  const [, setCarTags] = useState([]);
   const [locations, setLocations] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
