@@ -3,19 +3,16 @@ import { FiMapPin } from 'react-icons/fi';
 
 import homeBanner from '../assets/home-banner.jpg';
 import axiosInstance from '../axiosConfig';
-import { useAuth } from '../context/AuthContext';
-import { authConfig } from '../helpers';
+import { showError } from '../components/common/ErrorToast';
 
 const CAR_LIMIT = 8;
 
 const Book = () => {
-  const { user } = useAuth();
   const [locations, setLocations] = useState([]);
   const [cars, setCars] = useState([]);
   const [locationId, setLocationId] = useState('');
   const [pickupDate, setPickupDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
-  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchLocations = async () => {
@@ -23,7 +20,7 @@ const Book = () => {
         const response = await axiosInstance.get('/api/locations');
         setLocations(response.data);
       } catch (err) {
-        setError(err.response?.data?.message || 'Unable to load locations.');
+        showError(err.response?.data?.message || 'Unable to load locations.');
       }
     };
 
@@ -33,16 +30,15 @@ const Book = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const config = user?.token ? authConfig(user.token) : undefined;
-        const response = await axiosInstance.get('/api/cars', config);
+        const response = await axiosInstance.get('/api/cars/featured');
         setCars(response.data.slice(0, CAR_LIMIT));
       } catch (err) {
-        setError(err.response?.data?.message || 'Unable to load cars.');
+        showError(err.response?.data?.message || 'Unable to load cars.');
       }
     };
 
     fetchCars();
-  }, [user?.token]);
+  }, []);
 
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10 md:gap-8">
@@ -90,7 +86,6 @@ const Book = () => {
             Search cars
           </button>
         </div>
-        {error ? <p className="mt-4 text-sm text-red-500">{error}</p> : null}
       </form>
 
       {/* Locations */}

@@ -78,6 +78,17 @@ const listCars = async (req, res) => {
   }
 };
 
+const listFeaturedCars = async (req, res) => {
+  try {
+    const cars = await Car.find({ tags: 'featured', status: 'Active' })
+      .populate('location', 'code name')
+      .sort({ make: 1, model: 1 });
+    res.json(cars);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const getCar = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -164,4 +175,4 @@ const listTags = (req, res) => {
   res.json(TAGS);
 };
 
-module.exports = { listCars, getCar, createCar, updateCar, listTags };
+module.exports = { listCars, listFeaturedCars, getCar, createCar, updateCar, listTags };

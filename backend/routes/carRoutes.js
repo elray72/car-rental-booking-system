@@ -1,6 +1,7 @@
 const express = require('express');
 const {
   listCars,
+  listFeaturedCars,
   createCar,
   getCar,
   updateCar,
@@ -10,10 +11,11 @@ const { protect, authorize } = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-// Tags
+// Public
+router.get('/featured', listFeaturedCars);
 router.get('/tags', listTags);
 
-// Cars
+// Protected
 router.get('/', protect, authorize(['staff', 'admin']), listCars);
 router.post('/', protect, authorize(['admin']), createCar);
 router.get('/:id', protect, authorize(['admin']), getCar);

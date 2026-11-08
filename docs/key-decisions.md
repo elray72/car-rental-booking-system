@@ -47,9 +47,15 @@ Due to compressed timelines, the core functionality will be built ahead of aligm
 
 ---
 
-### Multi-select box
+### Other library choices
 
-`react-select` was selected to enabled multiple checkbox, `react-multi-select-component` was initially proposed, but `react-select` suited the aesthetic better with 'pills' and popularity 11m weekly downloads vs 100k (NPM, 2025).
+- **Multi-select box:** `react-select` was selected to enabled multiple checkbox, `react-multi-select-component` was initially proposed, but `react-select` suited the aesthetic better with 'pills' and popularity 11m weekly downloads vs 100k (NPM, 2025).
+
+- **Toast alerts:** I didn't like the error paragraph we were using in forms on the home page - used `react-hot-toast` library to pop up errors.
+
+- **React icons:** `react-icons` was used for it's popularity and large library of icons.
+
+- **React spinner:** `react-spinner` was used for loading screens due to it's ease of implementation and compatibility with React 18.
 
 ---
 
@@ -57,13 +63,13 @@ Due to compressed timelines, the core functionality will be built ahead of aligm
 
 - Most fields will use `trim()` to ensure data integrity and avoid bugs related to trailing spaces. This will be applied to what makes sense, vs as a global rule.
 
+- Cars - `car.location` was initially going to required, but decided we'll remove that requirement.
+
+- Cars - featured, initially thought to use a 'featured' boolean but was kinda more annoying to use on the forms, decided I can leverage the tags and just add featured there.
+
 ---
 
-#### Car
-
-`car.location` was initially going to required, but decided we'll remove that requirement.
-
-#### Design
+### Design
 
 GenAI was used via Canva to add a slight blur to the stock photo (Canva, n.d.) for a photograph of the Gold Coast skyline acquired via Pexels (Patel, n.d.). This will be used for the home page banner.
 
