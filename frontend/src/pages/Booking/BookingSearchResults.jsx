@@ -3,13 +3,14 @@ import { FiCalendar, FiMapPin } from 'react-icons/fi';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 
-import axiosInstance from '../axiosConfig';
-import { dateRangeDays, formatDay } from '../helpers';
-import Button from '../components/common/Button';
+import axiosInstance from '../../axiosConfig';
+import { dateRangeDays, formatDay } from '../../helpers';
+import Button from '../../components/common/Button';
 
 const BookingSearchResults = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+
   const location = searchParams.get('location') || '';
   const start = searchParams.get('start') || '';
   const end = searchParams.get('end') || '';
@@ -31,10 +32,10 @@ const BookingSearchResults = () => {
         const carsResponse = await axiosInstance.get('/api/cars/available', {
           params: { location, start, end },
         });
+
         const sorted = carsResponse.data.sort((a, b) => a.dailyRate - b.dailyRate);
         setCars(sorted);
       } catch (err) {
-        console.log(err);
         setError(err.response?.data?.message || 'Unable to search cars.');
       }
 
@@ -56,6 +57,15 @@ const BookingSearchResults = () => {
     navigate(`/?${params}`);
   };
 
+  const getBookingParams = (carId) => {
+    return new URLSearchParams({
+      car: carId,
+      location,
+      start,
+      end,
+    });
+  };
+
   return (
     <div className="min-h-[70vh] w-full bg-canvas text-black">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10">
@@ -69,7 +79,7 @@ const BookingSearchResults = () => {
             <span className="text-muted"> - </span>
             <span className="inline-flex items-center gap-1">
               <FiCalendar className="text-accent-strong" />
-              {formatDay(start)} – {formatDay(end)}
+              {formatDay(start)} - {formatDay(end)}
             </span>
             <span className="text-muted"> - </span>
             <span>{rentalDaysLabel}</span>
@@ -78,6 +88,7 @@ const BookingSearchResults = () => {
             Change search
           </Button>
         </div>
+
         {/* Loading state */}
         {loading ? <BounceLoader size={40} color="grey" /> : null}
 
@@ -100,8 +111,8 @@ const BookingSearchResults = () => {
           <article className="booking-card flex-col items-center p-8 text-center">
             <h2 className="text-xl font-semibold m-2">No cars available for these dates</h2>
             <p className="mt-2 max-w-md text-sm text-muted">
-              All cars at {locationLabel} are booked for {formatDay(start)} – {formatDay(end)}. Try
-              different dates or another depot.
+              All cars at {locationLabel} are booked for {formatDay(start)} - {formatDay(end)}. Try
+              different dates or another location.
             </p>
             <Button className="mt-6" variant="secondary" onClick={changeSearch}>
               Change search
@@ -136,6 +147,9 @@ const BookingSearchResults = () => {
                       Total ${car.dailyRate * rentalDays} for {rentalDaysLabel}
                     </p>
                   </div>
+                  <Button onClick={() => navigate(`/booking/summary?${getBookingParams(car._id)}`)}>
+                    Book
+                  </Button>
                 </article>
               );
             })}

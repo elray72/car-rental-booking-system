@@ -6,6 +6,7 @@ module.exports = {
         accent: {
           DEFAULT: 'var(--color-accent)',
           strong: 'var(--color-accent-strong)',
+          light: 'var(--color-accent-light)',
         },
         muted: 'var(--color-text-muted)',
         line: 'var(--color-border)',

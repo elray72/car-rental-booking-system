@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { FiMapPin } from 'react-icons/fi';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import homeBanner from '../assets/home-banner.jpg';
-import axiosInstance from '../axiosConfig';
-import Button from '../components/common/Button';
-import { showError } from '../components/common/ErrorToast';
+import homeBanner from '../../assets/home-banner.jpg';
+import axiosInstance from '../../axiosConfig';
+import Button from '../../components/common/Button';
+import { showError } from '../../components/common/ErrorToast';
 
 const CAR_LIMIT = 8;
 

@@ -1,8 +1,11 @@
 import { DateTime } from 'luxon';
 
 export const parseDay = (dateStr) => {
-  const day = String(dateStr);
-  return DateTime.fromFormat(day, 'yyyy-MM-dd', { zone: 'utc' });
+  const value = String(dateStr);
+  const day = DateTime.fromFormat(value, 'yyyy-MM-dd', { zone: 'utc' });
+  if (day.isValid) return day;
+
+  return DateTime.fromISO(value, { zone: 'utc' }).startOf('day');
 };
 
 export const dateRangeDays = (startDateStr, endDateStr) => {
@@ -14,9 +17,9 @@ export const dateRangeDays = (startDateStr, endDateStr) => {
   return days > 0 ? days : 1;
 };
 
-export const formatDay = (dateStr) => {
+export const formatDay = (dateStr, format = 'ccc d LLL yyyy') => {
   const date = parseDay(dateStr);
   if (!date.isValid) return dateStr;
 
-  return date.toFormat('ccc d LLL yyyy');
+  return date.toFormat(format);
 };
