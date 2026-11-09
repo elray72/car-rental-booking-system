@@ -17,7 +17,10 @@ const Navbar = () => {
         <Link to="/login" className="mr-4">
           Login
         </Link>
-        <Link to="/register" className="bg-green-500 px-4 py-2 rounded hover:bg-green-700">
+        <Link
+          to="/register"
+          className="bg-yellow-500 px-4 py-2 rounded text-black font-medium hover:bg-yellow-600 transition-colors"
+        >
           Register
         </Link>
       </>
@@ -33,7 +36,10 @@ const Navbar = () => {
         <Link to="/profile" className="mr-4">
           Profile
         </Link>
-        <button onClick={handleLogout} className="bg-red-500 px-4 py-2 rounded hover:bg-red-700">
+        <button
+          onClick={handleLogout}
+          className="rounded bg-white px-4 py-2 text-black ring-1 ring-inset ring-black hover:bg-gray-100"
+        >
           Logout
         </button>
       </>
@@ -52,7 +58,10 @@ const Navbar = () => {
         <Link to="/profile" className="mr-4">
           Profile
         </Link>
-        <button onClick={handleLogout} className="bg-red-500 px-4 py-2 rounded hover:bg-red-700">
+        <button
+          onClick={handleLogout}
+          className="rounded bg-white px-4 py-2 text-black ring-1 ring-inset ring-black hover:bg-gray-100"
+        >
           Logout
         </button>
       </>
@@ -65,7 +74,10 @@ const Navbar = () => {
         <Link to="/profile" className="mr-4">
           Profile
         </Link>
-        <button onClick={handleLogout} className="bg-red-500 px-4 py-2 rounded hover:bg-red-700">
+        <button
+          onClick={handleLogout}
+          className="rounded bg-white px-4 py-2 text-black ring-1 ring-inset ring-black hover:bg-gray-100"
+        >
           Logout
         </button>
       </>
@@ -73,10 +85,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-600 text-white p-4 flex justify-between items-center">
-      <Link to="/" className="text-2xl font-bold flex items-center gap-2">
-        <div className="rounded-md bg-white p-1">
-          <GiStripedSun className="text-blue-600 w-6 h-6" />
+    <nav className="flex items-center justify-between border-b border-gray-200 bg-white p-4 text-black">
+      <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-black">
+        <div className="p-1 rounded bg-yellow-500">
+          <GiStripedSun className="h-6 w-6 text-black" />
         </div>
         Sunshine Car Rentals
       </Link>

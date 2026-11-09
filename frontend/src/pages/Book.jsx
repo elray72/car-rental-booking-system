@@ -44,52 +44,59 @@ const Book = () => {
     <div className="flex flex-col w-full">
       {/* Banner */}
       <div
-        className="flex h-[67vh] items-center justify-center bg-cover bg-bottom bg-no-repeat px-6"
+        className="flex h-[60vh] md:h-[60vh] items-center justify-center bg-cover bg-bottom bg-no-repeat px-6"
         style={{ backgroundImage: `url(${homeBanner})` }}
       >
         {/* TODO: Search form */}
-        <form className="mx-auto w-full md:w-2/3 rounded-xl border-none bg-white/20 p-6 pb-8 backdrop-blur-md">
+        <form className="black-glass mx-auto w-full max-w-4xl p-6 pb-8 md:w-4/5">
           <div className="mb-4 flex flex-col gap-1">
             <h1 className="text-2xl font-bold">Find a car</h1>
             <p className="mt-1">Pay on pickup, return to the same location.</p>
           </div>
-          <div className="flex flex-col items-stretch gap-4 md:flex-row md:items-end">
-            <label className="flex flex-1 flex-col gap-2 text-sm">
-              <span className="font-medium">Pick-up location</span>
-              <select
-                className="rounded border border-white/60 bg-white/80 p-2 font-normal"
-                value={locationId}
-                onChange={(event) => setLocationId(event.target.value)}
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end">
+            <div className="flex flex-col gap-4 md:flex-row md:items-end lg:flex-1">
+              <label className="flex flex-1 flex-col gap-2 text-sm">
+                <span className="font-medium">Pick-up location</span>
+                <select
+                  className="field font-normal"
+                  value={locationId}
+                  onChange={(event) => setLocationId(event.target.value)}
+                >
+                  <option value="">Select a location</option>
+                  {locations.map((location) => (
+                    <option key={location._id} value={location._id}>
+                      {location.name} ({location.code})
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="flex flex-1 flex-col gap-2 text-sm">
+                <span className="font-medium">Pick-up date</span>
+                <input
+                  className="date-field"
+                  type="date"
+                  value={pickupDate}
+                  onChange={(event) => setPickupDate(event.target.value)}
+                />
+              </label>
+              <label className="flex flex-1 flex-col gap-2 text-sm">
+                <span className="font-medium">Return date</span>
+                <input
+                  className="date-field"
+                  type="date"
+                  value={returnDate}
+                  onChange={(event) => setReturnDate(event.target.value)}
+                />
+              </label>
+            </div>
+            <div className="flex md:justify-end">
+              <button
+                className="field-focus mt-2 w-full whitespace-nowrap rounded bg-yellow-500 font-medium px-4 py-2 text-black md:mt-0 md:w-auto hover:bg-yellow-600 transition-colors"
+                type="button"
               >
-                <option value="">Select a location</option>
-                {locations.map((location) => (
-                  <option key={location._id} value={location._id}>
-                    {location.name} ({location.code})
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="flex flex-1 flex-col gap-2 text-sm">
-              <span className="font-medium">Pick-up date</span>
-              <input
-                className="rounded border border-white/60 bg-white/80 p-2"
-                type="date"
-                value={pickupDate}
-                onChange={(event) => setPickupDate(event.target.value)}
-              />
-            </label>
-            <label className="flex flex-1 flex-col gap-2 text-sm">
-              <span className="font-medium">Return date</span>
-              <input
-                className="rounded border border-white/60 bg-white/80 p-2"
-                type="date"
-                value={returnDate}
-                onChange={(event) => setReturnDate(event.target.value)}
-              />
-            </label>
-            <button className="rounded bg-blue-600 px-4 py-2 text-white" type="button">
-              Search cars
-            </button>
+                Search cars
+              </button>
+            </div>
           </div>
         </form>
       </div>
