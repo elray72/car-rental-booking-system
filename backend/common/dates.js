@@ -1,10 +1,13 @@
 const { DateTime } = require('luxon');
 
-const parseDay = (value) => DateTime.fromFormat(String(value), 'yyyy-MM-dd', { zone: 'utc' });
+const parseDay = (value) => {
+  const day = String(value);
+  return DateTime.fromFormat(day, 'yyyy-MM-dd', { zone: 'utc' });
+};
 
 const parseDateRange = (start, end) => {
   if (!start || !end) {
-    return { error: 'Pick-up and return dates are required' };
+    return { error: 'Pick up and return dates are required' };
   }
 
   const startDate = parseDay(start);
@@ -13,7 +16,7 @@ const parseDateRange = (start, end) => {
     return { error: 'Please enter a valid date range' };
   }
   if (endDate < startDate) {
-    return { error: 'Return date must be on or after the pick-up date' };
+    return { error: 'Return date must be on or after the pick up date' };
   }
 
   return { startDate: startDate.toJSDate(), endDate: endDate.toJSDate() };

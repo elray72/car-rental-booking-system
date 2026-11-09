@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FiMapPin } from 'react-icons/fi';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import homeBanner from '../assets/home-banner.jpg';
 import axiosInstance from '../axiosConfig';
@@ -8,12 +9,41 @@ import { showError } from '../components/common/ErrorToast';
 
 const CAR_LIMIT = 8;
 
-const Book = () => {
+const Booking = () => {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [locations, setLocations] = useState([]);
   const [cars, setCars] = useState([]);
-  const [locationId, setLocationId] = useState('');
-  const [pickupDate, setPickupDate] = useState('');
-  const [returnDate, setReturnDate] = useState('');
+  const [formError, setFormError] = useState('');
+  const [locationCode, setLocationCode] = useState(searchParams.get('location') || '');
+  const [pickupDate, setPickupDate] = useState(searchParams.get('start') || '');
+  const [returnDate, setReturnDate] = useState(searchParams.get('end') || '');
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (!locationCode) {
+      setFormError('A valid location is required');
+      return;
+    }
+
+    if (!pickupDate || !returnDate) {
+      setFormError('Pickup and return dates are required');
+      return;
+    }
+
+    if (returnDate < pickupDate) {
+      setFormError('Return date must be on or after the pickup date');
+      return;
+    }
+
+    setFormError('');
+    const params = new URLSearchParams({
+      location: locationCode,
+      start: pickupDate,
+      end: returnDate,
+    });
+    navigate(`/booking/search?${params}`);
+  };
 
   useEffect(() => {
     const fetchLocations = async () => {
@@ -48,8 +78,10 @@ const Book = () => {
         className="flex h-[60vh] md:h-[60vh] items-center justify-center bg-cover bg-bottom bg-no-repeat px-6"
         style={{ backgroundImage: `url(${homeBanner})` }}
       >
-        {/* TODO: Search form */}
-        <form className="black-glass mx-auto w-full max-w-4xl p-6 pb-8 md:w-4/5">
+        <form
+          className="black-glass mx-auto w-full max-w-4xl p-6 pb-8 md:w-4/5"
+          onSubmit={handleSearch}
+        >
           <div className="mb-4 flex flex-col gap-1">
             <h1 className="text-2xl font-bold">Find a car</h1>
             <p className="mt-1">Pay on pickup, return to the same location.</p>
@@ -57,23 +89,23 @@ const Book = () => {
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end">
             <div className="flex flex-col gap-4 md:flex-row md:items-end lg:flex-1">
               <label className="flex flex-1 flex-col gap-2 text-sm">
-                <span className="font-medium">Pick-up location</span>
+                <span className="font-medium">Pickup location</span>
                 <select
                   className="field font-normal"
-                  value={locationId}
+                  value={locationCode}
                   style={{ height: '40px' }}
-                  onChange={(event) => setLocationId(event.target.value)}
+                  onChange={(event) => setLocationCode(event.target.value)}
                 >
                   <option value="">Select a location</option>
                   {locations.map((location) => (
-                    <option key={location._id} value={location._id}>
+                    <option key={location._id} value={location.code}>
                       {location.name} ({location.code})
                     </option>
                   ))}
                 </select>
               </label>
               <label className="flex flex-1 flex-col gap-2 text-sm">
-                <span className="font-medium">Pick-up date</span>
+                <span className="font-medium">Pickup date</span>
                 <input
                   className="date-field"
                   type="date"
@@ -92,11 +124,19 @@ const Book = () => {
               </label>
             </div>
             <div className="flex md:justify-end">
-              <Button className="field-focus mt-2 w-full whitespace-nowrap md:mt-0 md:w-auto">
+              <Button
+                type="submit"
+                className="field-focus mt-2 w-full whitespace-nowrap md:mt-0 md:w-auto"
+              >
                 Search cars
               </Button>
             </div>
           </div>
+          {formError ? (
+            <p className="mt-4 rounded bg-danger-light p-2 text-sm text-danger" role="alert">
+              {formError}
+            </p>
+          ) : null}
         </form>
       </div>
 
@@ -156,4 +196,4 @@ const Book = () => {
   );
 };
 
-export default Book;
+export default Booking;

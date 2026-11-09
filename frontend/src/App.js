@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/common/Navbar';
 import ProtectedRoute from './components/common/ProtectedRoute';
-import Book from './pages/Book';
+import Booking from './pages/Booking';
+import BookingSearchResults from './pages/BookingSearchResults';
 import Cars from './pages/Cars';
 import CarForm from './pages/CarForm';
 import Locations from './pages/Locations';
@@ -19,7 +20,8 @@ function App() {
       <Navbar />
       <Routes>
         {/* Public routes */}
-        <Route path="/" element={<Book />} />
+        <Route path="/" element={<Booking />} />
+        <Route path="/booking/search" element={<BookingSearchResults />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route

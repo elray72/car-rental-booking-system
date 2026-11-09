@@ -73,8 +73,9 @@ const parseCar = async (car) => {
 };
 
 const findAvailableCars = async (req, res) => {
-  const { location, start, end } = req.query;
-  if (!location || !mongoose.Types.ObjectId.isValid(location)) {
+  const code = text(req.query.location).toUpperCase();
+  const { start, end } = req.query;
+  if (!code) {
     return res.status(400).json({ message: 'A valid location is required' });
   }
 
@@ -82,8 +83,16 @@ const findAvailableCars = async (req, res) => {
   if (dates.error) return res.status(400).json({ message: dates.error });
 
   try {
+    // Find the location by code
+    const location = await Location.findOne({ code });
+    if (!location) {
+      return res.status(400).json({ message: 'A valid location is required' });
+    }
+
     // Active car ids at this location
-    const carsAtLocation = await Car.find({ location, status: 'Active' }).select('_id');
+    const carsAtLocation = await Car.find({ location: location._id, status: 'Active' }).select(
+      '_id',
+    );
 
     // Car ids with a confirmed booking that overlaps the requested range
     const bookedCars = await Booking.find({
@@ -94,15 +103,15 @@ const findAvailableCars = async (req, res) => {
     }).distinct('car');
 
     // Get available (active) cars at this location where not in booked cars list
-    const avaialbleCars = await Car.find({
-      location,
+    const availableCars = await Car.find({
+      location: location._id,
       status: 'Active',
       _id: { $nin: bookedCars },
     })
       .populate('location', 'code name')
       .sort({ make: 1, model: 1 });
 
-    res.json(avaialbleCars);
+    res.json(availableCars);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
