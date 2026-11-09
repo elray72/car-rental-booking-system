@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
+import { twMerge } from 'tailwind-merge';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import FormInput from './FormInput';
@@ -29,7 +29,7 @@ function Form({
   });
   return (
     <form
-      className={clsx('bg-white p-6 shadow-md rounded', className)}
+      className={twMerge('bg-white p-6 shadow-md rounded', className)}
       noValidate
       onSubmit={handleSubmit((data) => onSubmit(data, setError))}
     >

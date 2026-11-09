@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/common/Navbar';
@@ -14,6 +15,7 @@ import Register from './pages/Register';
 function App() {
   return (
     <Router>
+      <Toaster position="bottom-center" />
       <Navbar />
       <Routes>
         {/* Public routes */}

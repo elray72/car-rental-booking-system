@@ -1,7 +1,19 @@
 const mongoose = require('mongoose');
 
 const STATUS = ['Active', 'Retired'];
-const TAGS = ['small', 'medium', 'large', 'suv', 'van', 'ute', 'ev', 'hybrid', 'luxury', 'sports'];
+const TAGS = [
+  'small',
+  'medium',
+  'large',
+  'suv',
+  'van',
+  'ute',
+  'ev',
+  'hybrid',
+  'luxury',
+  'sports',
+  'featured',
+];
 
 const carSchema = new mongoose.Schema({
   nickname: { type: String, required: true, trim: true },
