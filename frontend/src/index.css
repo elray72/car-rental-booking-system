@@ -5,6 +5,7 @@
 :root {
   --color-accent: #f5a524;
   --color-accent-strong: #b45309;
+  --color-accent-light: #f8e8a9;
   --color-text-muted: #6b7280;
   --color-border: #d1d5db;
   --color-surface: #ffffff;
@@ -22,8 +23,24 @@
 }
 
 @layer components {
+  .auth-notice {
+    @apply mb-4 rounded border border-warning bg-warning-light p-3 text-sm text-warning;
+  }
+
   .black-glass {
     @apply rounded-xl border-none bg-black/40 text-white backdrop-blur-md;
+  }
+
+  .booking-card {
+    @apply flex flex-col gap-4 rounded-lg border border-line bg-surface p-4 shadow-md sm:flex-row sm:items-center;
+  }
+
+  .button-link {
+    @apply inline-block px-4 py-2 rounded text-black font-medium bg-accent hover:brightness-90 transition;
+  }
+
+  .card-image {
+    @apply flex w-full items-center justify-center rounded bg-subtle;
   }
 
   .field-focus,
@@ -42,5 +59,17 @@
   .date-field::-webkit-datetime-edit-year-field,
   .date-field::-webkit-datetime-edit-text {
     @apply text-black;
+  }
+
+  .nav-link {
+    @apply text-black font-medium hover:text-accent-strong transition;
+  }
+
+  .row-total {
+    @apply flex justify-between gap-4 border-t border-line pt-3 text-base font-semibold;
+  }
+
+  .step-circle {
+    @apply flex h-6 w-6 items-center justify-center rounded-full text-black border border-black;
   }
 }

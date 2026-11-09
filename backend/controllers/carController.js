@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
+
+const { parseDateRange } = require('../common/dates');
+const { text } = require('../common/text');
+const Booking = require('../models/Booking');
 const Car = require('../models/Car');
 const Location = require('../models/Location');
-const { text } = require('../common/text');
 
 const { STATUS, TAGS } = Car;
 
@@ -67,6 +70,51 @@ const parseCar = async (car) => {
       status,
     },
   };
+};
+
+const findAvailableCars = async (req, res) => {
+  const code = text(req.query.location).toUpperCase();
+  const { start, end } = req.query;
+  if (!code) {
+    return res.status(400).json({ message: 'A valid location is required' });
+  }
+
+  const dates = parseDateRange(start, end);
+  if (dates.error) return res.status(400).json({ message: dates.error });
+
+  try {
+    // Find the location by code
+    const location = await Location.findOne({ code });
+    if (!location) {
+      return res.status(400).json({ message: 'A valid location is required' });
+    }
+
+    // Active car ids at this location
+    const carsAtLocation = await Car.find({ location: location._id, status: 'Active' }).select(
+      '_id',
+    );
+
+    // Car ids with a confirmed booking that overlaps the requested range
+    const bookedCars = await Booking.find({
+      car: { $in: carsAtLocation.map((car) => car._id) },
+      status: 'Confirmed',
+      startDate: { $lte: dates.endDate },
+      endDate: { $gte: dates.startDate },
+    }).distinct('car');
+
+    // Get available (active) cars at this location where not in booked cars list
+    const availableCars = await Car.find({
+      location: location._id,
+      status: 'Active',
+      _id: { $nin: bookedCars },
+    })
+      .populate('location', 'code name')
+      .sort({ make: 1, model: 1 });
+
+    res.json(availableCars);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 const listCars = async (req, res) => {
@@ -175,4 +223,12 @@ const listTags = (req, res) => {
   res.json(TAGS);
 };
 
-module.exports = { listCars, listFeaturedCars, getCar, createCar, updateCar, listTags };
+module.exports = {
+  listCars,
+  listFeaturedCars,
+  getCar,
+  createCar,
+  updateCar,
+  listTags,
+  findAvailableCars,
+};

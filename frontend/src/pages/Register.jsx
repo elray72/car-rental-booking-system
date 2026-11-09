@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
 import axiosInstance from '../axiosConfig';
@@ -27,7 +27,12 @@ const fields = [
 
 const Register = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuth();
+
+  const from = location.state?.from;
+  const notice = location.state?.message;
+  const loginState = from ? { from, message: 'Sign in to confirm this booking.' } : undefined;
 
   const handleSubmit = async (data, setError) => {
     try {
@@ -38,7 +43,7 @@ const Register = () => {
       };
       const response = await axiosInstance.post('/api/auth/register', formData);
       login(response.data);
-      navigate('/');
+      navigate(from ? `${from.pathname}${from.search || ''}` : '/');
     } catch (error) {
       const errorMessage =
         error.response?.data?.message || 'Something went wrong, unable to create account.';
@@ -48,6 +53,11 @@ const Register = () => {
 
   return (
     <div className="max-w-md mx-auto mt-20">
+      {notice ? (
+        <p className="auth-notice" role="status">
+          {notice}
+        </p>
+      ) : null}
       <Form
         className="mb-4"
         formTitle="Create account"
@@ -58,7 +68,7 @@ const Register = () => {
       />
       <p className="text-center text-sm">
         Already have an account?{' '}
-        <Link className="text-blue-500 hover:underline" to="/login">
+        <Link className="text-blue-500 hover:underline" state={loginState} to="/login">
           Login
         </Link>
       </p>

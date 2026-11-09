@@ -3,7 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/common/Navbar';
 import ProtectedRoute from './components/common/ProtectedRoute';
-import Book from './pages/Book';
+import Booking from './pages/Booking/Booking';
+import BookingConfirmation from './pages/Booking/BookingConfirmation';
+import BookingDetail from './pages/Booking/BookingDetail';
+import BookingSearchResults from './pages/Booking/BookingSearchResults';
+import BookingSummary from './pages/Booking/BookingSummary';
 import Cars from './pages/Cars';
 import CarForm from './pages/CarForm';
 import Locations from './pages/Locations';
@@ -19,7 +23,18 @@ function App() {
       <Navbar />
       <Routes>
         {/* Public routes */}
-        <Route path="/" element={<Book />} />
+        <Route path="/" element={<Booking />} />
+        <Route path="/booking/search" element={<BookingSearchResults />} />
+        <Route path="/booking/summary" element={<BookingSummary />} />
+        <Route path="/booking/confirmation" element={<BookingConfirmation />} />
+        <Route
+          path="/booking/:id"
+          element={
+            <ProtectedRoute>
+              <BookingDetail />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
