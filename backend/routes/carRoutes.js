@@ -1,5 +1,6 @@
 const express = require('express');
 const {
+  findAvailableCars,
   listCars,
   listFeaturedCars,
   createCar,
@@ -12,6 +13,7 @@ const { protect, authorize } = require('../middleware/authMiddleware');
 const router = express.Router();
 
 // Public
+router.get('/available', findAvailableCars);
 router.get('/featured', listFeaturedCars);
 router.get('/tags', listTags);
 
