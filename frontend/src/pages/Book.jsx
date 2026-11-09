@@ -103,47 +103,53 @@ const Book = () => {
       {/* Main */}
       <div className="w-full bg-canvas text-black">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10 md:gap-8">
-        {/* Locations */}
-        <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-semibold my-1">Our locations</h2>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {locations.map((location) => (
-              <article key={location._id} className="rounded border border-line bg-surface p-4 shadow-md">
-                <h3 className="font-semibold mb-2">
-                  <FiMapPin
-                    className="mr-1 inline-block text-accent-strong"
-                    style={{ marginTop: '-2px' }}
-                  />{' '}
-                  {location.name} ({location.code})
-                </h3>
-                <p className="text-sm text-muted">{location.address}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        {/* Cars */}
-        <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-semibold my-1">Our cars</h2>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-            {cars.map((car) => (
-              <article key={car._id} className="overflow-hidden rounded border border-line bg-surface shadow-md">
-                <div className="flex h-32 items-center justify-center bg-subtle text-muted md:h-40 lg:h-52">
-                  {/* Placeholder image */}
-                </div>
-                <div className="p-4">
+          {/* Locations */}
+          <div className="flex flex-col gap-2">
+            <h2 className="text-xl font-semibold my-1">Our locations</h2>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+              {locations.map((location) => (
+                <article
+                  key={location._id}
+                  className="rounded border border-line bg-surface p-4 shadow-md"
+                >
                   <h3 className="font-semibold mb-2">
-                    {car.make} {car.model}
+                    <FiMapPin
+                      className="mr-1 inline-block text-accent-strong"
+                      style={{ marginTop: '-2px' }}
+                    />{' '}
+                    {location.name} ({location.code})
                   </h3>
-                  <p className="mb-1 text-sm text-muted">
-                    '{car.nickname}' in {car.location?.name}
-                  </p>
-                  <p className="text-sm text-muted">${car.dailyRate}/day</p>
-                </div>
-              </article>
-            ))}
+                  <p className="text-sm text-muted">{location.address}</p>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
+
+          {/* Cars */}
+          <div className="flex flex-col gap-2">
+            <h2 className="text-xl font-semibold my-1">Our cars</h2>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+              {cars.map((car) => (
+                <article
+                  key={car._id}
+                  className="overflow-hidden rounded border border-line bg-surface shadow-md"
+                >
+                  <div className="flex h-32 items-center justify-center bg-subtle text-muted md:h-40 lg:h-52">
+                    {/* Placeholder image */}
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold mb-2">
+                      {car.make} {car.model}
+                    </h3>
+                    <p className="mb-1 text-sm text-muted">
+                      '{car.nickname}' in {car.location?.name}
+                    </p>
+                    <p className="text-sm text-muted">${car.dailyRate}/day</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
