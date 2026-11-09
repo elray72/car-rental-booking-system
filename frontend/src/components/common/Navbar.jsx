@@ -19,7 +19,7 @@ const Navbar = () => {
         </Link>
         <Link
           to="/register"
-          className="bg-yellow-500 px-4 py-2 rounded text-black font-medium hover:bg-yellow-600 transition-colors"
+          className="inline-block bg-yellow-500 px-4 py-2 rounded text-black font-medium hover:bg-yellow-600 transition-colors"
         >
           Register
         </Link>

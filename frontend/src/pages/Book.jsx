@@ -60,6 +60,7 @@ const Book = () => {
                 <select
                   className="field font-normal"
                   value={locationId}
+                  style={{ height: '40px' }}
                   onChange={(event) => setLocationId(event.target.value)}
                 >
                   <option value="">Select a location</option>
