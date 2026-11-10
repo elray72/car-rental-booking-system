@@ -44,9 +44,6 @@ const BookingReceipt = ({ booking }) => {
           <div>${(car?.dailyRate || 0) * days}</div>
         </div>
       </ul>
-      <Link className="button-link w-fit" to="/">
-        Back to home
-      </Link>
     </article>
   );
 };
