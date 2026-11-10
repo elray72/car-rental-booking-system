@@ -89,4 +89,33 @@ const getBooking = async (req, res) => {
   }
 };
 
-module.exports = { createBooking, getMyBookings, getBooking };
+const cancelBooking = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid booking id' });
+  }
+
+  try {
+    const booking = await Booking.findById(id);
+    if (!booking || String(booking.owner) !== String(req.user._id)) {
+      return res.status(404).json({ message: 'Booking not found' });
+    }
+
+    if (booking.status === 'Cancelled') {
+      return res.status(409).json({ message: 'Booking is already cancelled' });
+    }
+
+    booking.status = 'Cancelled';
+    await booking.save();
+    await booking.populate({
+      path: 'car',
+      populate: { path: 'location', select: 'code name' },
+    });
+
+    res.json(booking);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { createBooking, getMyBookings, getBooking, cancelBooking };
