@@ -52,6 +52,21 @@ const createBooking = async (req, res) => {
   }
 };
 
+const getMyBookings = async (req, res) => {
+  try {
+    const bookings = await Booking.find({ owner: req.user._id })
+      .sort({ createdAt: -1 })
+      .populate({
+        path: 'car',
+        populate: { path: 'location', select: 'code name' },
+      });
+
+    res.json(bookings);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const getBooking = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -74,4 +89,4 @@ const getBooking = async (req, res) => {
   }
 };
 
-module.exports = { createBooking, getBooking };
+module.exports = { createBooking, getMyBookings, getBooking };

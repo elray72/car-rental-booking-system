@@ -8,11 +8,12 @@ const BookingReceipt = ({ booking }) => {
   const end = formatDay(booking.endDate, 'yyyy-MM-dd');
   const days = dateRangeDays(start, end);
   const car = booking.car;
+  const statusVariant = booking.status === 'Confirmed' ? 'success' : 'error';
 
   return (
     <article className="booking-card relative flex-col items-stretch">
       <div className="absolute top-3 right-4">
-        <StatusTag variant="success">Confirmed</StatusTag>
+        <StatusTag variant={statusVariant}>{booking.status}</StatusTag>
       </div>
       <p className="font-semibold">
         {car?.make} {car?.model}
