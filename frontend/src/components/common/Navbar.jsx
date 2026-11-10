@@ -89,7 +89,7 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between border-b border-gray-200 bg-white p-4 text-black">
       <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-black">
-        <div className="p-1 rounded bg-yellow-500">
+        <div className="p-1 rounded bg-accent">
           <GiStripedSun className="h-6 w-6 text-black" />
         </div>
         Sunshine Car Rentals

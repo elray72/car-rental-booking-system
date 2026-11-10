@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import StatusTag from '../../components/common/StatusTag';
 import { formatDay } from '../../helpers';
 
-const MyBookingItem = ({ booking }) => {
+const MyBookingItem = ({ booking, hideActions = false }) => {
   const car = booking.car;
   const statusVariant = booking.status === 'Confirmed' ? 'success' : 'error';
 
@@ -36,11 +36,13 @@ const MyBookingItem = ({ booking }) => {
             <div>{formatDay(booking.endDate)}</div>
           </li>
         </ul>
-        <div className="mt-auto flex justify-end">
-          <Link className="button-link w-fit" to={`/booking/${booking._id}`}>
-            View booking
-          </Link>
-        </div>
+        {!hideActions ? (
+          <div className="mt-auto flex justify-end">
+            <Link className="button-link w-fit" to={`/booking/${booking._id}`}>
+              View booking
+            </Link>
+          </div>
+        ) : null}
       </div>
     </article>
   );

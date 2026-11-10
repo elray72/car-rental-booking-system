@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/common/Navbar';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import Booking from './pages/Booking/Booking';
+import BookingChange from './pages/Booking/BookingChange';
 import BookingConfirmation from './pages/Booking/BookingConfirmation';
 import BookingDetail from './pages/Booking/BookingDetail';
-import MyBookings from './pages/Booking/MyBookings';
 import BookingSearchResults from './pages/Booking/BookingSearchResults';
 import BookingSummary from './pages/Booking/BookingSummary';
+import MyBookings from './pages/Booking/MyBookings';
 import Cars from './pages/Cars';
 import CarForm from './pages/CarForm';
 import Locations from './pages/Locations';
@@ -41,6 +42,14 @@ function App() {
           element={
             <ProtectedRoute>
               <BookingDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/booking/:id/change"
+          element={
+            <ProtectedRoute>
+              <BookingChange />
             </ProtectedRoute>
           }
         />

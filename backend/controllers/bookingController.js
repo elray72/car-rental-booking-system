@@ -89,6 +89,62 @@ const getBooking = async (req, res) => {
   }
 };
 
+const updateBooking = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid booking id' });
+  }
+
+  const carId = req.body.car;
+  if (!carId || !mongoose.Types.ObjectId.isValid(carId)) {
+    return res.status(400).json({ message: 'A valid car is required to create a booking' });
+  }
+
+  const dates = parseDateRange(req.body.startDate, req.body.endDate);
+  if (dates.error) return res.status(400).json({ message: dates.error });
+
+  try {
+    const booking = await Booking.findById(id);
+    if (!booking || String(booking.owner) !== String(req.user._id)) {
+      return res.status(404).json({ message: 'Booking not found' });
+    }
+
+    if (booking.status === 'Cancelled') {
+      return res.status(409).json({ message: 'Booking is already cancelled' });
+    }
+
+    const car = await Car.findOne({ _id: carId, status: 'Active' });
+    if (!car) return res.status(404).json({ message: 'Car not found' });
+
+    const overlappingBooking = await Booking.findOne({
+      _id: { $ne: booking._id },
+      car: carId,
+      status: 'Confirmed',
+      startDate: { $lte: dates.endDate },
+      endDate: { $gte: dates.startDate },
+    });
+
+    if (overlappingBooking) {
+      return res.status(409).json({
+        message: 'This car is not available on the selected dates',
+      });
+    }
+
+    booking.car = carId;
+    booking.startDate = dates.startDate;
+    booking.endDate = dates.endDate;
+    await booking.save();
+    await booking.populate({
+      path: 'car',
+      populate: { path: 'location', select: 'code name' },
+    });
+
+    res.json(booking);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const cancelBooking = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -118,4 +174,4 @@ const cancelBooking = async (req, res) => {
   }
 };
 
-module.exports = { createBooking, getMyBookings, getBooking, cancelBooking };
+module.exports = { createBooking, getMyBookings, getBooking, updateBooking, cancelBooking };

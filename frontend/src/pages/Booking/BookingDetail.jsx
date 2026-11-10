@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 
 import axiosInstance from '../../axiosConfig';
-import BookingReceipt from './BookingReceipt';
 import { useAuth } from '../../context/AuthContext';
 import { authConfig } from '../../helpers';
+import Button from '../../components/common/Button';
+import BookingReceipt from './BookingReceipt';
 
 const BookingDetail = () => {
   const { user } = useAuth();
@@ -35,6 +36,7 @@ const BookingDetail = () => {
     if (!window.confirm('Cancel this booking?')) return;
     setCancelLoading(true);
     setCancelError('');
+
     try {
       const response = await axiosInstance.patch(
         `/api/bookings/${id}/cancel`,
@@ -53,7 +55,6 @@ const BookingDetail = () => {
     <div className="min-h-[70vh] w-full bg-canvas text-black">
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-10">
         <h1 className="text-2xl font-bold">Booking</h1>
-        {/* Loading state */}
         {loading ? <BounceLoader size={40} color="grey" /> : null}
 
         {/* Error state */}
@@ -76,14 +77,17 @@ const BookingDetail = () => {
               </p>
             ) : null}
             {booking.status === 'Confirmed' ? (
-              <button
-                type="button"
-                className="button-link w-fit"
-                onClick={handleCancel}
-                disabled={cancelLoading}
-              >
-                {cancelLoading ? 'Cancelling…' : 'Cancel booking'}
-              </button>
+              <div className="flex flex-wrap justify-start gap-3">
+                <Link className="button-link-secondary w-fit mr-auto" to={`/bookings`}>
+                  Back
+                </Link>
+                <Button variant="secondary" onClick={handleCancel} disabled={cancelLoading}>
+                  Cancel booking
+                </Button>
+                <Link className="button-link w-fit" to={`/booking/${id}/change`}>
+                  Change booking
+                </Link>
+              </div>
             ) : null}
           </>
         ) : null}

@@ -9,7 +9,11 @@ the "undisputed industry standard" (Google, 2026).
 - `zod`
 - `@hookform/resolvers`
 
-A common `Form` component will be created to facilitate this
+A common `Form` component will be created to facilitate this.
+
+Update:
+
+Customer facing forms will not use the standard Form component - it's too hard to style without making it too complicated.
 
 ---
 
