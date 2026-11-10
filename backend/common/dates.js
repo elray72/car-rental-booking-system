@@ -7,7 +7,7 @@ const parseDay = (value) => {
 
 const parseDateRange = (start, end) => {
   if (!start || !end) {
-    return { error: 'Pick up and return dates are required' };
+    return { error: 'Pickup and return dates are required' };
   }
 
   const startDate = parseDay(start);
@@ -16,7 +16,7 @@ const parseDateRange = (start, end) => {
     return { error: 'Please enter a valid date range' };
   }
   if (endDate < startDate) {
-    return { error: 'Return date must be on or after the pick up date' };
+    return { error: 'Return date must be on or after the pickup date' };
   }
 
   return { startDate: startDate.toJSDate(), endDate: endDate.toJSDate() };

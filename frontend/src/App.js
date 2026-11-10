@@ -6,6 +6,7 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 import Booking from './pages/Booking/Booking';
 import BookingConfirmation from './pages/Booking/BookingConfirmation';
 import BookingDetail from './pages/Booking/BookingDetail';
+import MyBookings from './pages/Booking/MyBookings';
 import BookingSearchResults from './pages/Booking/BookingSearchResults';
 import BookingSummary from './pages/Booking/BookingSummary';
 import Cars from './pages/Cars';
@@ -27,6 +28,14 @@ function App() {
         <Route path="/booking/search" element={<BookingSearchResults />} />
         <Route path="/booking/summary" element={<BookingSummary />} />
         <Route path="/booking/confirmation" element={<BookingConfirmation />} />
+        <Route
+          path="/bookings"
+          element={
+            <ProtectedRoute>
+              <MyBookings />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/booking/:id"
           element={

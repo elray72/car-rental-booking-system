@@ -32,6 +32,9 @@ const Navbar = () => {
         <Link to="/" className="nav-link mr-4">
           Book a car
         </Link>
+        <Link to="/bookings" className="nav-link mr-4">
+          My bookings
+        </Link>
         <Link to="/profile" className="nav-link mr-4">
           Profile
         </Link>
@@ -45,6 +48,9 @@ const Navbar = () => {
   const renderAdminMenu = () => {
     return (
       <>
+        <Link to="/bookings" className="nav-link mr-4">
+          My bookings
+        </Link>
         <Link to="/cars" className="nav-link mr-4">
           Cars
         </Link>
@@ -64,6 +70,9 @@ const Navbar = () => {
   const renderStaffMenu = () => {
     return (
       <>
+        <Link to="/bookings" className="nav-link mr-4">
+          My bookings
+        </Link>
         <Link to="/profile" className="nav-link mr-4">
           Profile
         </Link>
