@@ -20,6 +20,8 @@ const dbUser = {
 };
 
 describe('Auth controller', () => {
+  let sandbox;
+
   // Register user
   describe('When registering a user', () => {
     let req, res, next;

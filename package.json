@@ -6,8 +6,9 @@
     "install-all": "npm install && npm install --prefix backend && npm install --prefix frontend",
     "start": "concurrently \"npm run prod --prefix backend\" \"npm start --prefix frontend\"",
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
-    "lint": "prettier --check .",
-    "lint:fix": "prettier --write .",
+    "lint": "prettier --check . && npm run lint --prefix frontend && npm run lint --prefix backend",
+    "lint:fix": "prettier --write . && npm run lint:fix --prefix frontend && npm run lint:fix --prefix backend",
+    "lint:js": "npm run lint --prefix frontend && npm run lint --prefix backend",
     "test": "npm test --prefix backend && CI=true npm test --prefix frontend -- --watchAll=false"
   },
   "devDependencies": {
