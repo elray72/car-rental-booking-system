@@ -96,6 +96,7 @@ const LocationCreate = () => {
   return (
     <div className="max-w-md mx-auto mt-20">
       <Form
+        className="booking-card flex-col items-stretch p-4 rounded-lg"
         formTitle={id ? 'Edit location' : 'Add location'}
         fields={fields}
         formError={deleteError}
@@ -110,7 +111,7 @@ const LocationCreate = () => {
         onDelete={id ? handleDelete : undefined}
       />
       <p className="text-center text-sm mt-4">
-        <Link className="text-blue-500 hover:underline" to="/locations">
+        <Link className="button-link-secondary" to="/locations">
           Back to locations
         </Link>
       </p>

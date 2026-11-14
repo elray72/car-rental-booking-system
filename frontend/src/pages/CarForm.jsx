@@ -138,6 +138,7 @@ const CarForm = () => {
   return (
     <div className="max-w-md mx-auto mt-20">
       <Form
+        className="booking-card flex-col items-stretch p-4 rounded-lg"
         formTitle={!carId ? 'Add car' : 'Edit car'}
         fields={fields}
         schema={schema}
@@ -145,7 +146,7 @@ const CarForm = () => {
         defaultValues={carValues}
         onSubmit={handleSubmit}
       />
-      <p className="text-center text-sm mt-4">
+      <p className="text-center text-sm mt-4 pb-8">
         <Link className="text-blue-500 hover:underline" to="/cars">
           Back to cars
         </Link>

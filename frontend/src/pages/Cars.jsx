@@ -80,9 +80,9 @@ const Cars = () => {
     .sort((a, b) => a.make.localeCompare(b.make) || a.model.localeCompare(b.model));
 
   return (
-    <div className="max-w-6xl mx-auto mt-20">
-      <div className="bg-white p-6 shadow-md rounded">
-        <h1 className="text-2xl font-bold mb-4 text-center">Cars</h1>
+    <div className="max-w-6xl mx-auto mt-10">
+      <h1 className="text-2xl font-bold mb-6 text-start">Cars</h1>
+      <div className="booking-card flex-col items-stretch">
         <div className="flex gap-4 mb-4 justify-end">
           <select
             className="p-2 border rounded"
@@ -121,12 +121,12 @@ const Cars = () => {
             }}
           />
           {user?.role === 'admin' ? (
-            <Link to="/cars/create" className="bg-blue-600 text-white px-4 py-2 rounded">
+            <Link to="/cars/create" className="button-link">
               Add car
             </Link>
           ) : null}
         </div>
-        <div className="flex justify-center mt-20">
+        <div className="flex justify-center">
           {visibleCars.length <= 0 ? (
             <p className="text-center">
               {cars.length === 0 ? 'No cars yet.' : 'No cars match your criteria.'}
@@ -166,8 +166,8 @@ const Cars = () => {
                         <td className="p-2 border-b">{(car.tags || []).join(', ')}</td>
                         <td className="p-2 border-b">{car.status}</td>
                         {user?.role === 'admin' ? (
-                          <td className="p-2 border-b">
-                            <Link className="text-blue-600" to={`/cars/${car._id}/edit`}>
+                          <td className="p-2 border-b text-end">
+                            <Link className="button-link-secondary" to={`/cars/${car._id}/edit`}>
                               Edit
                             </Link>
                           </td>
