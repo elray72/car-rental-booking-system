@@ -26,12 +26,12 @@ const Locations = () => {
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto mt-20">
-      <div className="bg-white p-6 shadow-md rounded">
-        <h1 className="text-2xl font-bold mb-4 text-center">Locations</h1>
-        <div className="flex justify-end mb-4">
+    <div className="max-w-3xl mx-auto mt-10">
+      <h1 className="text-2xl font-bold mb-6 text-start">Locations</h1>
+      <div className="booking-card flex-col items-stretch">
+        <div className="flex justify-end">
           {user?.role === 'admin' ? (
-            <Link to="/locations/create" className="bg-blue-600 text-white px-4 py-2 rounded">
+            <Link to="/locations/create" className="button-link">
               Add location
             </Link>
           ) : null}
@@ -60,8 +60,11 @@ const Locations = () => {
                     <td className="p-2 border-b">{location.name}</td>
                     <td className="p-2 border-b">{location.address}</td>
                     {user?.role === 'admin' ? (
-                      <td className="p-2 border-b">
-                        <Link className="text-blue-600" to={`/locations/${location._id}/edit`}>
+                      <td className="p-2 border-b text-end">
+                        <Link
+                          className="button-link-secondary"
+                          to={`/locations/${location._id}/edit`}
+                        >
                           Edit
                         </Link>
                       </td>
