@@ -6,6 +6,7 @@ import { BounceLoader } from 'react-spinners';
 import axiosInstance from '../../axiosConfig';
 import { dateRangeDays, formatDay } from '../../helpers';
 import Button from '../../components/common/Button';
+import BookingSteps from './BookingSteps';
 
 const BookingSearchResults = () => {
   const navigate = useNavigate();
@@ -69,6 +70,11 @@ const BookingSearchResults = () => {
   return (
     <div className="min-h-[70vh] w-full bg-canvas text-black">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10">
+        <BookingSteps className="mx-auto" current={2} />
+        <div>
+          <h1 className="text-2xl font-bold">Search results</h1>
+        </div>
+
         {/* Search results summary */}
         <div className="booking-card sm:justify-between">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
