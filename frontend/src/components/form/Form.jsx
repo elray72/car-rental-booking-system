@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import Button from '../common/Button';
 import FormInput from './FormInput';
 import FormSelect from './FormSelect';
 import FormMultiSelect from './FormMultiSelect';
@@ -68,9 +69,9 @@ function Form({
           {formError}
         </p>
       ) : null}
-      <button className="w-full bg-blue-600 text-white p-2 rounded" type="submit">
+      <Button type="submit" className="w-full">
         {submitLabel}
-      </button>
+      </Button>
       {onDelete ? (
         <button
           className="w-full mt-2 bg-red-500 text-white p-2 rounded"
