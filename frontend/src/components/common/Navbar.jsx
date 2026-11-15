@@ -70,15 +70,18 @@ const Navbar = () => {
   const renderStaffMenu = () => {
     return (
       <>
-        <Link to="/bookings" className="nav-link mr-4">
+        <Link to="/" className="nav-link mr-4">
           My bookings
+        </Link>
+        <Link to="/cars" className="nav-link mr-4">
+          Cars
+        </Link>
+        <Link to="/locations" className="nav-link mr-4">
+          Locations
         </Link>
         <Link to="/profile" className="nav-link mr-4">
           Profile
         </Link>
-        <Button variant="secondary" onClick={handleLogout}>
-          Logout
-        </Button>
         <Button variant="secondary" onClick={handleLogout}>
           Logout
         </Button>
