@@ -275,6 +275,8 @@ git pull
 pnpm run install-all
 
 npm run build --prefix frontend
+
+pm2 restart sunshine-cars
 ```
 
 ---
