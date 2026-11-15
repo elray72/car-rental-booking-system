@@ -54,11 +54,8 @@ Due to compressed timelines, the core functionality will be built ahead of aligm
 ### Other library choices
 
 - **Multi-select box:** `react-select` was selected to enabled multiple checkbox, `react-multi-select-component` was initially proposed, but `react-select` suited the aesthetic better with 'pills' and popularity 11m weekly downloads vs 100k (NPM, 2025).
-
 - **Toast alerts:** I didn't like the error paragraph we were using in forms on the home page - used `react-hot-toast` library to pop up errors.
-
 - **React icons:** `react-icons` was used for it's popularity and large library of icons.
-
 - **React spinner:** `react-spinner` was used for loading screens due to it's ease of implementation and compatibility with React 18.
 
 ---
@@ -66,9 +63,7 @@ Due to compressed timelines, the core functionality will be built ahead of aligm
 ### Data models
 
 - Most fields will use `trim()` to ensure data integrity and avoid bugs related to trailing spaces. This will be applied to what makes sense, vs as a global rule.
-
 - Cars - `car.location` was initially going to required, but decided we'll remove that requirement.
-
 - Cars - featured, initially thought to use a 'featured' boolean but was kinda more annoying to use on the forms, decided I can leverage the tags and just add featured there.
 
 ---
@@ -76,6 +71,18 @@ Due to compressed timelines, the core functionality will be built ahead of aligm
 ### Design
 
 GenAI was used via Canva to add a slight blur to the stock photo (Canva, n.d.) for a photograph of the Gold Coast skyline acquired via Pexels (Patel, n.d.). This will be used for the home page banner.
+
+---
+
+### Builds - CI/CD
+
+Kept getting random failures in CI based off linting errors. Wanted to capture that before PR so implemented `eslint`. Version used is the best compatible version of frontend. Backend was version was matched to it despite no restrictions.
+
+---
+
+### Production
+
+- PM2 - Comparing steps and workflow, `PM2` is a lighter weight solution to running the application service via command line that setting up Linux desktop (XFCE and Remote Desktop). It also has automatic crash recovery (Khatzie, 2025). As such this was the method used. This can be donwloaded here: [https://pm2.keymetrics.io/](https://pm2.keymetrics.io/)
 
 ---
 
@@ -91,8 +98,11 @@ Pexels. [https://www.pexels.com/photo/stunning-aerial-view-of-gold-coast-skyline
 Max, A. (2025, July 31). _LocalStorage vs SessionStorage vs Cookies: A Complete Guide_
 DEV Community. [https://dev.to/hmpljs/localstorage-vs-sessionstorage-vs-cookies-a-complete-guide-3m6d](https://dev.to/hmpljs/localstorage-vs-sessionstorage-vs-cookies-a-complete-guide-3m6d)
 
-Watson, J. (2025, Jully 11). _react-select_
+Watson, J. (2025, July 11). _react-select_
 NPM JS. [https://www.npmjs.com/package/react-select](https://www.npmjs.com/package/react-select)
+
+Khatzie. (2025, Apr 9) _PM2 for Node.js: Pros, Cons, and When to Use It_
+Medium. [https://khatzie.medium.com/pm2-for-node-js-pros-cons-and-when-to-use-it-391cb5db83ab](https://khatzie.medium.com/pm2-for-node-js-pros-cons-and-when-to-use-it-391cb5db83ab)
 
 Zalavadiya, H. (2022, October 7). _react-multi-select-component_
 NPM JS. [https://www.npmjs.com/package/react-multi-select-component](https://www.npmjs.com/package/react-multi-select-component)

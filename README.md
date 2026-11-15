@@ -2,6 +2,11 @@
 
 Car Rental Booking System for Sunshine Cars. Written in JavaScript on React, Express API and MongoDB.
 
+| Config             | Value                                                 |
+| ------------------ | ----------------------------------------------------- |
+| Website url:       | [http://3.27.4.65:5001/](http://3.27.4.65:5001/)      |
+| AWS Instance Id:   | i-01ee5572f701b71df                                   |
+
 ---
 
 ### Supporting references:
@@ -9,11 +14,11 @@ Car Rental Booking System for Sunshine Cars. Written in JavaScript on React, Exp
 | Tool                            | Url                                                                                                                                                                                                                                                                                                   |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Project mgmt (JIRA)             | [https://raycorp-qut.atlassian.net/jira/software/projects/CR/boards/2/timeline](https://raycorp-qut.atlassian.net/jira/software/projects/CR/boards/2/timeline)                                                                                                                                                          |
+| Figma                           | [Car-Rental-Booking-System](https://www.figma.com/design/KRkjJrorSidIh7SJbr90Dh/Car-Rental-Booking-System)                                                                                                                                                                                            |
 | Requirements diagram            | [crbs-requirements.drawio](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=crbs-requirements.drawio&dark=auto#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Felray72%2Fcar-rental-booking-system%2Fmain%2Fdocs%2Fassets%2Fcrbs-requirements.drawio) |
 | Requirements diagram source     | [docs/assets/crbs-requirements.drawio](docs/assets/crbs-requirements.drawio)                                                                                                                                                                                                                          |
 | Booking sequence diagram        | [crbs-sequence.drawio](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=crbs-sequence.drawio&dark=auto#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Felray72%2Fcar-rental-booking-system%2Fmain%2Fdocs%2Fassets%2Fcrbs-sequence.drawio)             |
 | Booking sequence diagram source | [docs/assets/crbs-sequence.drawio](docs/assets/crbs-sequence.drawio)                                                                                                                                                                                                                                  |
-| Figma                           | [Car-Rental-Booking-System](https://www.figma.com/design/KRkjJrorSidIh7SJbr90Dh/Car-Rental-Booking-System)                                                                                                                                                                                            |
 
 ---
 
@@ -61,6 +66,25 @@ npm start
 | `npm test`         | Run backend test suites, then the frontend test suite |
 | `npm run lint`     | Run `prettier` and `eslint` on frontend and backend   |
 | `npm run lint:fix` | Format and auto-fix lint issues                       |
+
+---
+
+### Running online
+
+During this phase, there is a limitation where only approved IP addresses can access the url at: [http://3.27.4.65:5001/](http://3.27.4.65:5001/). To set this up, do the following in AWS:
+
+1. Log into AWS using [https://d-97671c4bd0.awsapps.com/start/#/](https://d-97671c4bd0.awsapps.com/start/#/)
+2. Navigate to the instance details at `EC2` -> `Instances` -> `i-01ee5572f701b71df` or
+   - [https://ap-southeast-2.console.aws.amazon.com/ec2/home?region=ap-southeast-2#InstanceDetails:instanceId=i-01ee5572f701b71df](https://ap-southeast-2.console.aws.amazon.com/ec2/home?region=ap-southeast-2#InstanceDetails:instanceId=i-01ee5572f701b71df)
+3. Scroll to the bottom and click the `Security` tab.
+4. Find `sg-09db074a975e0828f` and click that or
+   - [https://ap-southeast-2.console.aws.amazon.com/ec2/home?region=ap-southeast-2#SecurityGroup:securityGroupId=sg-09db074a975e0828f](https://ap-southeast-2.console.aws.amazon.com/ec2/home?region=ap-southeast-2#SecurityGroup:securityGroupId=sg-09db074a975e0828f)
+5. Click `Edit inbound rules` - this project is related to `Ray-CRBS` in the description.
+6. Add the following config (by clicking `Add rule`)
+   - Type: `Custom TCP`
+   - Port range: `5001`
+   - Source type: `My IP`
+7. Click `Save rules`. Yous should be able to access  [http://3.27.4.65:5001/](http://3.27.4.65:5001/)
 
 ---
 
@@ -252,3 +276,19 @@ pnpm run install-all
 
 npm run build --prefix frontend
 ```
+
+---
+
+### Known limitations:
+
+1. SSL and domain name has not yet been implemented. Due to restrictions on AWS server, you must add your IP in the security group in AWS. Instructions above [Running online]
+2. Password reset or changing your password has not yet been implemented
+3. Image assets have not yet been implemented for the Cars. Currently they only have image placeholders.
+4. Booking administration features have not yet been added:
+   - Admin booking list - list of all customer bookings by upcoming date
+   - Admin booking search - ability to find customers by name
+   - Ability to change customers booking details
+5. Tests - tests have been purposely omitted tro be done in Sprint 3, exceptions are:
+   - Login and registration flow
+6. Deployments are manual - CI/CD pipeline has not yet been implemented
+7. Non public pages are only very mildly styled - they will be updated at a later date.
