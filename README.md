@@ -283,7 +283,7 @@ pm2 restart sunshine-cars
 
 ### Known limitations:
 
-1. SSL and domain name has not yet been implemented. Due to restrictions on AWS server, you must add your IP in the security group in AWS. Instructions above [Running online]
+1. SSL and domain name has not yet been implemented. Due to restrictions on AWS server, you must add your IP in the security group in AWS. Instructions above [Running online](#running-online)
 2. Password reset or changing your password has not yet been implemented
 3. Image assets have not yet been implemented for the Cars. Currently they only have image placeholders.
 4. Booking administration features have not yet been added:
